@@ -44,11 +44,23 @@ To get started:
    pre-commit install
    ```
 
-5. Run the web app:
+5. Run the webapp:
 
    ```bash
    python manage.py runserver
    ```
+
+   When running the webapp for the first time you may get a warning similar to:
+
+   `You have 19 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, main, sessions.`
+
+   If this is the case, stop your webapp (with CONTROL/CMD-C) and apply the migrations with:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+   then restart it.
 
 6. Run the tests:
 
