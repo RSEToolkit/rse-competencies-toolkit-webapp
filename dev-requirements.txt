@@ -33,7 +33,7 @@ identify==2.6.5
     # via pre-commit
 iniconfig==2.0.0
     # via pytest
-mypy==1.13.0
+mypy==1.14.1
     # via
     #   django-stubs
     #   rse_competencies_toolkit (pyproject.toml)
