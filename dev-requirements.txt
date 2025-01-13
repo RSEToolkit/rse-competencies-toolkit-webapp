@@ -71,7 +71,7 @@ pytest-mock==3.14.0
     # via rse_competencies_toolkit (pyproject.toml)
 pyyaml==6.0.2
     # via pre-commit
-ruff==0.8.4
+ruff==0.9.1
     # via rse_competencies_toolkit (pyproject.toml)
 sqlparse==0.5.3
     # via django
