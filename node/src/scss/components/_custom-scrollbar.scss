@@ -1,0 +1,80 @@
+//
+// Custom scrollbar
+// based on https://github.com/Grsmto/simplebar
+// --------------------------------------------------
+
+
+[data-simplebar] {
+  --#{$prefix}scrollbar-width: #{$scrollbar-width};
+  --#{$prefix}scrollbar-bg: #{$scrollbar-bg};
+  --#{$prefix}scrollbar-border-radius: #{$scrollbar-border-radius};
+  --#{$prefix}scrollbar-track-width: #{$scrollbar-track-width};
+  --#{$prefix}scrollbar-track-bg: #{$scrollbar-track-bg};
+}
+
+.simplebar-scrollbar {
+  &::before {
+    right: 0;
+    left: 0;
+    background-color: var(--#{$prefix}scrollbar-bg);
+    @include border-radius(var(--#{$prefix}scrollbar-border-radius));
+    opacity: 1 !important; // stylelint-disable-line declaration-no-important
+    transition: none;
+  }
+}
+
+.simplebar-track {
+  overflow: initial;
+  background-color: var(--#{$prefix}scrollbar-track-bg);
+  @include border-radius(var(--#{$prefix}scrollbar-border-radius));
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+
+  &.simplebar-vertical {
+    right: calc(var(--#{$prefix}scrollbar-width) * .5);
+    width: var(--#{$prefix}scrollbar-track-width);
+    .simplebar-scrollbar {
+      left: 50%;
+      width: var(--#{$prefix}scrollbar-width);
+      margin-left: calc(var(--#{$prefix}scrollbar-width) * -.5);
+      &::before {
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &.simplebar-horizontal {
+    bottom: calc(var(--#{$prefix}scrollbar-width) * .5);
+    height: var(--#{$prefix}scrollbar-track-width);
+    .simplebar-scrollbar {
+      top: 50%;
+      bottom: 0;
+      height: var(--#{$prefix}scrollbar-width);
+      margin-top: calc(var(--#{$prefix}scrollbar-width) * -.5);
+      &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.simplebar-wrapper:hover ~ .simplebar-track,
+[data-simplebar-auto-hide="false"] .simplebar-track {
+  opacity: 1;
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    [data-simplebar] {
+      --#{$prefix}scrollbar-bg: #{$scrollbar-bg-dark};
+      --#{$prefix}scrollbar-track-bg: #{$scrollbar-track-bg-dark};
+    }
+  }
+}

@@ -1,0 +1,79 @@
+//
+// Alert
+// --------------------------------------------------
+
+
+.alert {
+  --#{$prefix}alert-link-color: inherit;
+  .alert-link {
+    color: var(--#{$prefix}alert-link-color);
+  }
+}
+
+
+// Icon inside alert
+
+.alert > [class^="#{$icon-prefix}"],
+.alert > [class*=" #{$icon-prefix}"] {
+  margin-top: .125rem;
+}
+
+
+// Secondary / light alert
+
+.alert-secondary {
+  --#{$prefix}alert-bg: #{lighten($secondary, 2%)};
+}
+.alert-secondary,
+.alert-light {
+  --#{$prefix}alert-color: #{$gray-800};
+  --#{$prefix}alert-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}alert-link-color: #{$gray-900};
+}
+
+
+// Dark alert
+
+.alert-dark {
+  --#{$prefix}alert-border-color: #{$dark};
+  --#{$prefix}alert-bg: #{$dark};
+  --#{$prefix}alert-color: rgba(#{to-rgb($white)}, .8);
+  --#{$prefix}alert-link-color: #{$white};
+}
+
+
+// Dismissible alerts
+
+.alert-dismissible .btn-close {
+  padding: calc(var(--#{$prefix}alert-padding-y) * 1.125) var(--#{$prefix}alert-padding-x);
+}
+@each $color, $value in map-remove($theme-colors, "secondary", "light", "dark") {
+  .alert-#{$color} .btn-close {
+    background: transparent escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M8 1.2A6.74 6.74 0 0 0 1.2 8 6.74 6.74 0 0 0 8 14.8 6.74 6.74 0 0 0 14.8 8 6.74 6.74 0 0 0 8 1.2zM0 8c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8zm10.6-2.6a.61.61 0 0 1 0 .8L8.8 8l1.9 1.9a.61.61 0 0 1 0 .8.61.61 0 0 1-.8 0L8 8.8l-1.9 1.9a.61.61 0 0 1-.8 0 .61.61 0 0 1 0-.8L7.2 8 5.4 6.1a.61.61 0 0 1 0-.8.61.61 0 0 1 .8 0l1.9 1.9L10 5.3c.1-.1.4-.1.6.1z' fill-rule='evenodd' fill='#{darken($value, 18%)}'/></svg>")) center / $btn-close-width auto no-repeat;
+  }
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    @each $color, $value in $theme-colors {
+      .alert-#{$color} {
+        --#{$prefix}alert-bg: rgba(#{to-rgb($value)}, .05);
+        --#{$prefix}alert-border-color: rgba(#{to-rgb($value)}, .25);
+      }
+    }
+    .alert-secondary,
+    .alert-light,
+    .alert-dark {
+      --#{$prefix}alert-border-color: var(--#{$prefix}border-color);
+    }
+    .alert-secondary,
+    .alert-light {
+      --#{$prefix}alert-bg: rgba(#{to-rgb($white), .04});
+      --#{$prefix}alert-color: rgba(#{to-rgb($white)}, .8);
+      --#{$prefix}alert-link-color: #{$white};
+    }
+  }
+}

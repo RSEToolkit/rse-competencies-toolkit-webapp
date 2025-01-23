@@ -1,0 +1,109 @@
+// Dark color mode variables
+//
+// Custom variables for the `[data-bs-theme="dark"]` theme.
+
+// Global colors
+
+$primary-text-emphasis-dark:        darken($primary, 5%) !default;
+$secondary-text-emphasis-dark:      $gray-200 !default;
+$success-text-emphasis-dark:        darken($success, 5%) !default;
+$info-text-emphasis-dark:           darken($info, 5%) !default;
+$warning-text-emphasis-dark:        darken($warning, 5%) !default;
+$danger-text-emphasis-dark:         darken($danger, 5%) !default;
+$light-text-emphasis-dark:          $gray-200 !default;
+$dark-text-emphasis-dark:           $white !default;
+
+$primary-bg-subtle-dark:            shade-color($primary, 85%) !default;
+$secondary-bg-subtle-dark:          $gray-800 !default;
+$success-bg-subtle-dark:            shade-color($success, 85%) !default;
+$info-bg-subtle-dark:               shade-color($info, 85%) !default;
+$warning-bg-subtle-dark:            shade-color($warning, 85%) !default;
+$danger-bg-subtle-dark:             shade-color($danger, 85%) !default;
+$light-bg-subtle-dark:              $gray-900 !default;
+$dark-bg-subtle-dark:               shade-color($dark, 85%) !default;
+
+$primary-border-subtle-dark:        shade-color($primary, 70%) !default;
+$secondary-border-subtle-dark:      $gray-700 !default;
+$success-border-subtle-dark:        shade-color($success, 70%) !default;
+$info-border-subtle-dark:           shade-color($info, 70%) !default;
+$warning-border-subtle-dark:        shade-color($warning, 70%) !default;
+$danger-border-subtle-dark:         shade-color($danger, 70%) !default;
+$light-border-subtle-dark:          $gray-700 !default;
+$dark-border-subtle-dark:           $gray-800 !default;
+
+$body-color-dark:                   rgba($white, .7) !default;
+$body-bg-dark:                      $gray-900 !default;
+$body-secondary-color-dark:         rgba($white, .5) !default;
+$body-secondary-bg-dark:            rgba($white, .03) !default;
+$body-tertiary-color-dark:          rgba($white, .4) !default;
+$body-tertiary-bg-dark:             rgba($white, .03) !default;
+$body-emphasis-color-dark:          $gray-100 !default;
+$border-color-dark:                 rgba($white, .13) !default;
+$headings-color-dark:               $white !default;
+
+$component-color-dark:              $gray-200 !default;
+$component-hover-color-dark:        $white !default;
+$component-hover-bg-dark:           $gray-800 !default;
+$component-active-color-dark:       $white !default;
+$component-active-bg-dark:          $gray-700 !default;
+$component-disabled-color-dark:     $gray-500 !default;
+
+
+// Shadows
+
+$box-shadow-dark:                   0 .4375rem 1.25rem rgba($black, .4) !default;
+$box-shadow-sm-dark:                0 .4375rem 1.25rem rgba($black, .4) !default;
+$box-shadow-lg-dark:                0 .4375rem 1.25rem rgba($black, .4) !default;
+
+
+// Forms
+
+$form-switch-bg-dark:               rgba($white, .25) !default;
+
+$form-valid-color-dark:             $success !default;
+$form-valid-border-color-dark:      $success !default;
+$form-invalid-color-dark:           $danger !default;
+$form-invalid-border-color-dark:    $danger !default;
+
+
+// Accordion
+
+$accordion-button-color-dark:           rgba($white, .9) !default;
+$accordion-icon-color-dark:             $accordion-button-color-dark !default;
+$accordion-icon-active-color-dark:      $primary !default;
+$accordion-button-icon-dark:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-color-dark}'><path d='M.5 6.3c.6-.6 1.6-.6 2.3 0l9.3 9.3 9.3-9.3c.6-.6 1.6-.6 2.3 0 .6.6.6 1.6 0 2.3L13.3 18.8c-.6.6-1.6.6-2.3 0L.8 8.5c-.9-.8-.9-1.6-.3-2.2z'/></svg>") !default;
+$accordion-button-active-icon-dark:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-active-color-dark}'><path d='M.5 6.3c.6-.6 1.6-.6 2.3 0l9.3 9.3 9.3-9.3c.6-.6 1.6-.6 2.3 0 .6.6.6 1.6 0 2.3L13.3 18.8c-.6.6-1.6.6-2.3 0L.8 8.5c-.9-.8-.9-1.6-.3-2.2z'/></svg>") !default;
+
+
+// Progress
+
+$progress-bg-dark:                      rgba($white, .08) !default;
+
+
+// Placeholders
+
+$placeholder-opacity-max-dark:          .24 !default;
+$placeholder-opacity-min-dark:          .1 !default;
+
+
+// Popovers
+
+$popover-border-color-dark:             $border-color-dark !default;
+$popover-box-shadow-dark:               $box-shadow-dark !default;
+
+
+// Toasts
+
+$toast-border-color-dark:               $border-color-dark !default;
+$toast-box-shadow-dark:                 $box-shadow-dark !default;
+
+
+// Offcanvas
+
+$offcanvas-box-shadow-dark:              $box-shadow-dark !default;
+
+
+// Custom scrollbar
+
+$scrollbar-track-bg-dark:                $border-color-dark !default;
+$scrollbar-bg-dark:                      rgba($white, .28) !default;

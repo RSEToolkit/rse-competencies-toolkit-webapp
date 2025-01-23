@@ -1,0 +1,149 @@
+//
+// Date / Time Picker
+// based on https://github.com/flatpickr/flatpickr
+// --------------------------------------------------
+
+/* stylelint-disable selector-class-pattern, selector-no-qualifying-type, declaration-no-important */
+.date-picker {
+  &[readonly] {
+    background-color: $input-bg;
+  }
+  &:focus {
+    border-color: $input-focus-border-color;
+  }
+}
+.flatpickr-calendar {
+  width: 325px;
+  padding: 0 .5rem;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  @include border-radius($dropdown-border-radius);
+  box-shadow: $dropdown-box-shadow;
+  &::before,
+  &::after { display: none; }
+}
+.flatpickr-innerContainer {
+  padding-bottom: 1.125rem;
+}
+.flatpickr-months {
+  padding: .75rem 0;
+  svg { vertical-align: top; }
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
+    top: .75rem;
+    svg { fill: var(--#{$prefix}gray-800); }
+    &:hover svg { fill: var(--#{$prefix}primary); }
+  }
+}
+span.flatpickr-weekday,
+.flatpickr-time .flatpickr-time-separator {
+  color: var(--#{$prefix}gray-600);
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  padding: .25rem;
+  appearance: none;
+}
+.numInputWrapper,
+.numInput,
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  color: var(--#{$prefix}gray-900) !important;
+}
+.numInputWrapper:hover,
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover {
+  background-color: var(--#{$prefix}gray-200);
+}
+.numInput:hover {
+  background-color: transparent !important;
+}
+.flatpickr-day {
+  height: 38px;
+  line-height: 37px;
+  color: var(--#{$prefix}gray-900);
+  border-radius: 0;
+  @include border-radius(var(--#{$prefix}border-radius));
+  &:hover:not(.flatpickr-disabled):not(.today):not(.selected) {
+    background-color: var(--#{$prefix}gray-200);
+    border-color: var(--#{$prefix}gray-200);
+  }
+  &.today {
+    color: var(--#{$prefix}primary) !important;
+    border-color: rgba(var(--#{$prefix}primary-rgb), .5) !important;
+    &.selected { color: $white !important; }
+    &:hover { background-color: transparent; }
+  }
+  &.selected {
+    background-color: var(--#{$prefix}primary) !important;
+    border-color: var(--#{$prefix}primary) !important;
+  }
+  &.flatpickr-disabled {
+    color: var(--#{$prefix}gray-500) !important;
+  }
+  &.prevMonthDay,
+  &.nextMonthDay {
+    color: var(--#{$prefix}gray-600);
+  }
+  &.inRange {
+    background-color: var(--#{$prefix}gray-200) !important;
+    border-color: var(--#{$prefix}gray-200) !important;
+    box-shadow: -5px 0 0 var(--#{$prefix}gray-200), 5px 0 0 var(--#{$prefix}gray-200);
+  }
+  &.startRange,
+  &.endRange,
+  &.endRange.selected,
+  &.endRange:hover {
+    background-color: var(--#{$prefix}primary) !important;
+    border-color: var(--#{$prefix}primary) !important;
+  }
+}
+.flatpickr-day.selected.endRange,
+.flatpickr-day.startRange.endRange,
+.flatpickr-day.endRange.endRange {
+  border-radius: 0;
+  @include border-radius(0 $border-radius $border-radius 0);
+}
+.flatpickr-day.selected.startRange,
+.flatpickr-day.startRange.startRange,
+.flatpickr-day.endRange.startRange {
+  border-radius: 0;
+  @include border-radius($border-radius 0 0 $border-radius);
+}
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+  box-shadow: -10px 0 0 $primary;
+}
+.flatpickr-time {
+  margin-bottom: .5rem;
+  .flatpickr-am-pm {
+    color: var(--#{$prefix}gray-800);
+  }
+  input:hover,
+  .flatpickr-am-pm:hover,
+  input:focus,
+  .flatpickr-am-pm:focus {
+    background-color: var(--#{$prefix}gray-200);
+  }
+  input.flatpickr-hour {
+    font-weight: $font-weight-semibold;
+  }
+}
+.flatpickr-calendar.hasTime .flatpickr-time {
+  border-color: var(--#{$prefix}border-color);
+}
+/* stylelint-enable selector-class-pattern, selector-no-qualifying-type, declaration-no-important */
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .flatpickr-calendar {
+      background: $dropdown-dark-bg;
+      border-color: $dropdown-dark-border-color;
+      box-shadow: $dropdown-dark-box-shadow;
+    }
+    .flatpickr-day.inRange { // stylelint-disable-line selector-class-pattern
+      border-color: transparent !important; // stylelint-disable-line declaration-no-important
+      box-shadow: -5px 0 0 rgba($white, .025), 5px 0 0 rgba($white, .025);
+    }
+  }
+}

@@ -1,0 +1,509 @@
+//
+// Forms
+// --------------------------------------------------
+
+/* stylelint-disable selector-no-qualifying-type, selector-class-pattern, declaration-no-important */
+
+// Remove default -webkit search input clear button
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+
+// Remove default -webkit time input icon
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+
+// Disabled input
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+.form-control[readonly],
+.form-control:disabled {
+  box-shadow: none !important;
+}
+
+
+// Label
+
+label {
+  font-size: $form-label-font-size;
+}
+.form-floating > label {
+  font-weight: $form-label-font-weight;
+  color: var(--#{$prefix}gray-500);
+}
+
+
+// Fix checkbox / radio position inside input group addon
+
+.input-group-text .form-check-input {
+  margin-top: 0;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+
+// Form switch
+
+.form-switch {
+  margin-bottom: $form-switch-margin-bottom;
+
+  .form-check-input {
+    height: $form-switch-height;
+    margin-top: unset;
+    background-color: $form-switch-bg;
+    filter: none;
+    border: unset;
+    &:checked {
+      background-color: $form-switch-checked-bg;
+    }
+    &:disabled { box-shadow: none; }
+  }
+
+  &.mode-switch {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    .form-check-label {
+      display: flex;
+      align-items: center;
+      transition: color .15s ease-in-out;
+      font: {
+        size: $font-size-base;
+        weight: $font-weight-medium;
+      }
+      &:first-of-type {
+        order: 1;
+        margin-right: $spacer * .625;
+        color: var(--#{$prefix}primary);
+      }
+      &:last-of-type {
+        order: 3;
+        margin-left: $spacer * .625;
+      }
+    }
+    .form-check-input {
+      order: 2;
+      margin-left: 0;
+      background-color: $form-switch-checked-bg !important;
+      &:checked {
+        ~ .form-check-label:first-of-type {
+          color: var(--#{$prefix}body-color);
+        }
+        ~ .form-check-label:last-of-type {
+          color: var(--#{$prefix}primary);
+        }
+      }
+    }
+  }
+}
+
+
+// Checkbox alt color
+
+.bg-primary .form-check-input:checked {
+  background-color: $white !important;
+  background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$primary}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>")) !important;
+  border-color: $white !important;
+}
+
+
+// Flush form controls
+
+.form-control-flush,
+.form-select-flush {
+  padding: {
+    right: .75rem;
+    left: .75rem;
+  }
+  font-weight: $font-weight-medium;
+  color: var(--#{$prefix}gray-800);
+  border: 0;
+}
+.form-select-flush {
+  padding-right: 2.25rem;
+}
+
+
+// Password visibility toggle
+
+.password-toggle {
+  position: relative;
+  .form-control {
+    padding-right: $font-size-base + ($spacer * 2);
+  }
+}
+
+.password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: .625rem;
+  padding: $spacer * .5;
+  margin-bottom: 0;
+  font-size: $btn-font-size-lg;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  .password-toggle-indicator {
+    font-size: 1.25em;
+    color: var(--#{$prefix}gray-600);
+    transition: color .2s ease-in-out;
+    &::before {
+      display: block;
+      width: 1em;
+      height: 1em;
+      content: "";
+      background-color: currentcolor;
+      -webkit-mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M30.267 15.6v-.133c0-.133-.133-.267-.133-.4-.133-.267-.267-.8-.533-1.333-.533-1.067-1.333-2.4-2.533-3.867-2.267-2.8-5.867-5.733-10.933-5.733s-8.8 3.067-11.067 5.867c-1.067 1.333-2 2.8-2.533 3.867-.267.533-.4.933-.533 1.333-.133.133-.133.267-.133.4v.133a.406.406 0 0 0 0 .533v.133c0 .133 0 .267.133.4s.267.8.533 1.333S3.602 20.666 4.802 22c2.133 2.8 5.733 5.733 11.467 5.733S25.602 24.8 27.736 22c1.067-1.467 1.733-2.8 2.267-3.867.267-.533.4-.933.533-1.333 0-.133.133-.267.133-.4v-.133c-.267-.267-.267-.4-.4-.667zm-2 .533c-.133.267-.267.667-.4 1.2-.4.933-1.067 2.133-2 3.467C24 23.333 20.934 25.733 16 25.733s-8-2.4-9.867-4.933c-.933-1.2-1.6-2.533-2-3.467-.267-.533-.267-.8-.4-1.2v-.266c.133-.267.267-.667.533-1.2.533-.8 1.333-2.133 2.4-3.333 2-2.533 5.2-4.933 9.333-4.933s7.333 2.4 9.333 4.933c1.067 1.333 1.733 2.533 2.267 3.467.267.533.4.933.533 1.2.133 0 .133 0 .133.133z'/><path d='M16 11.733c-2.4 0-4.267 2-4.267 4.267s2 4.267 4.267 4.267 4.267-2 4.267-4.267S18.4 11.733 16 11.733zM9.6 16c0-3.467 2.8-6.4 6.4-6.4 3.467 0 6.4 2.8 6.4 6.4 0 3.467-2.8 6.4-6.4 6.4-3.467 0-6.4-2.933-6.4-6.4z'/></svg>")) no-repeat 50% 50%; // stylelint-disable-line property-no-vendor-prefix
+      mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M30.267 15.6v-.133c0-.133-.133-.267-.133-.4-.133-.267-.267-.8-.533-1.333-.533-1.067-1.333-2.4-2.533-3.867-2.267-2.8-5.867-5.733-10.933-5.733s-8.8 3.067-11.067 5.867c-1.067 1.333-2 2.8-2.533 3.867-.267.533-.4.933-.533 1.333-.133.133-.133.267-.133.4v.133a.406.406 0 0 0 0 .533v.133c0 .133 0 .267.133.4s.267.8.533 1.333S3.602 20.666 4.802 22c2.133 2.8 5.733 5.733 11.467 5.733S25.602 24.8 27.736 22c1.067-1.467 1.733-2.8 2.267-3.867.267-.533.4-.933.533-1.333 0-.133.133-.267.133-.4v-.133c-.267-.267-.267-.4-.4-.667zm-2 .533c-.133.267-.267.667-.4 1.2-.4.933-1.067 2.133-2 3.467C24 23.333 20.934 25.733 16 25.733s-8-2.4-9.867-4.933c-.933-1.2-1.6-2.533-2-3.467-.267-.533-.267-.8-.4-1.2v-.266c.133-.267.267-.667.533-1.2.533-.8 1.333-2.133 2.4-3.333 2-2.533 5.2-4.933 9.333-4.933s7.333 2.4 9.333 4.933c1.067 1.333 1.733 2.533 2.267 3.467.267.533.4.933.533 1.2.133 0 .133 0 .133.133z'/><path d='M16 11.733c-2.4 0-4.267 2-4.267 4.267s2 4.267 4.267 4.267 4.267-2 4.267-4.267S18.4 11.733 16 11.733zM9.6 16c0-3.467 2.8-6.4 6.4-6.4 3.467 0 6.4 2.8 6.4 6.4 0 3.467-2.8 6.4-6.4 6.4-3.467 0-6.4-2.933-6.4-6.4z'/></svg>")) no-repeat 50% 50%;
+      -webkit-mask-size: cover; // stylelint-disable-line property-no-vendor-prefix
+      mask-size: cover;
+    }
+    &:hover { color: var(--#{$prefix}gray-800); }
+  }
+
+  .password-toggle-check {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+
+    &:checked ~ .password-toggle-indicator::before {
+      -webkit-mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 2c.4-.4 1.067-.4 1.467 0l26.8 26.8c.4.4.4 1.067 0 1.467s-1.067.4-1.467 0l-4.8-4.8c-.133 0-.133.133-.267.133-4 1.867-7.333 2.4-10.267 2s-5.2-1.733-6.933-3.2A17.207 17.207 0 0 1 2.8 19.467c-.4-.8-.667-1.467-.8-2.133-.133-.267-.133-.533-.267-.8 0-.133-.133-.4-.133-.667s.133-.667.267-.933c.133-.267.267-.533.4-.933.4-.667.8-1.333 1.333-2.133.933-1.2 2.133-2.8 2.933-3.867L2 3.334c-.4-.4-.4-.933 0-1.333zm6 7.467c-.8.933-1.867 2.4-2.8 3.733A10.76 10.76 0 0 0 4 15.067c-.133.267-.267.533-.267.667V16s.133.267.133.533c.133.533.4 1.067.8 1.733a15.323 15.323 0 0 0 3.333 4.4c1.467 1.333 3.467 2.4 5.867 2.8 2.4.267 5.2 0 8.8-1.6l-2.8-2.8c-1.2.8-2.533 1.333-3.867 1.333-1.733 0-3.333-.667-4.533-1.867s-1.867-2.8-1.867-4.533c0-1.333.4-2.667 1.2-3.733l-2.8-2.8zM11.6 16c0 1.2.533 2.267 1.333 3.067C13.733 20 14.8 20.4 16 20.4c.8 0 1.6-.267 2.267-.667l-6-6c-.4.667-.667 1.467-.667 2.267zm3.6-11.733h-.133l-.8.133-.933.267c-.533 0-.933.533-.8 1.067s.667.933 1.2.8l1.6-.267h1.6l.8.133.667.133.533.133 1.333.533c.133 0 .267.133.4.133s.133.133.267.133l.667.267 2.667 2 .4.4.4.533.4.4c.133.133.267.4.4.533s.133.267.267.4l.4.4c0 .4.133.533.133.667l.267.4c.133.133.133.267.267.4l.267.4.133.267v.133c0 .133.133.133.133.267l.133.133c0 .133.133.267.133.267l.133.267c0 .133 0 .267.133.4v.399l-.133.267c0 .133-.133.267-.133.267l-.267.8-.8 1.2c-.267.533-.133 1.067.4 1.333s1.067.133 1.333-.4l.267-.533.267-.4.533-.8.133-.4c0-.133.133-.267.133-.4l.133-.267v-.133s.133-.133.133-.267v-.8.133c0-.133 0-.4-.133-.533v-.267L30 15.065l-.133-.267v-.266l-.133-.267v-.399l-.533-.8v-.133c0-.133-.133-.133-.133-.267v-.133l-.267-.4c-.133-.133-.267-.4-.267-.533l-.267-.4c-.133-.133-.267-.4-.4-.533l-.4-.4c-.133-.133-.267-.4-.4-.533l-.4-.533-.4-.533-1.2-.667-.533-.4-.533-.4-.533-.4-.667-.4-.667-.4s-.133 0-.133-.133c-.133-.133-.4-.133-.533-.267l-.667-.267h-.133l-.8-.267h-.133l-1.067-.4-.8-.133h-.133l-.8-.133h-1.733z'/></svg>")) no-repeat 50% 50%; // stylelint-disable-line property-no-vendor-prefix
+      mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 2c.4-.4 1.067-.4 1.467 0l26.8 26.8c.4.4.4 1.067 0 1.467s-1.067.4-1.467 0l-4.8-4.8c-.133 0-.133.133-.267.133-4 1.867-7.333 2.4-10.267 2s-5.2-1.733-6.933-3.2A17.207 17.207 0 0 1 2.8 19.467c-.4-.8-.667-1.467-.8-2.133-.133-.267-.133-.533-.267-.8 0-.133-.133-.4-.133-.667s.133-.667.267-.933c.133-.267.267-.533.4-.933.4-.667.8-1.333 1.333-2.133.933-1.2 2.133-2.8 2.933-3.867L2 3.334c-.4-.4-.4-.933 0-1.333zm6 7.467c-.8.933-1.867 2.4-2.8 3.733A10.76 10.76 0 0 0 4 15.067c-.133.267-.267.533-.267.667V16s.133.267.133.533c.133.533.4 1.067.8 1.733a15.323 15.323 0 0 0 3.333 4.4c1.467 1.333 3.467 2.4 5.867 2.8 2.4.267 5.2 0 8.8-1.6l-2.8-2.8c-1.2.8-2.533 1.333-3.867 1.333-1.733 0-3.333-.667-4.533-1.867s-1.867-2.8-1.867-4.533c0-1.333.4-2.667 1.2-3.733l-2.8-2.8zM11.6 16c0 1.2.533 2.267 1.333 3.067C13.733 20 14.8 20.4 16 20.4c.8 0 1.6-.267 2.267-.667l-6-6c-.4.667-.667 1.467-.667 2.267zm3.6-11.733h-.133l-.8.133-.933.267c-.533 0-.933.533-.8 1.067s.667.933 1.2.8l1.6-.267h1.6l.8.133.667.133.533.133 1.333.533c.133 0 .267.133.4.133s.133.133.267.133l.667.267 2.667 2 .4.4.4.533.4.4c.133.133.267.4.4.533s.133.267.267.4l.4.4c0 .4.133.533.133.667l.267.4c.133.133.133.267.267.4l.267.4.133.267v.133c0 .133.133.133.133.267l.133.133c0 .133.133.267.133.267l.133.267c0 .133 0 .267.133.4v.399l-.133.267c0 .133-.133.267-.133.267l-.267.8-.8 1.2c-.267.533-.133 1.067.4 1.333s1.067.133 1.333-.4l.267-.533.267-.4.533-.8.133-.4c0-.133.133-.267.133-.4l.133-.267v-.133s.133-.133.133-.267v-.8.133c0-.133 0-.4-.133-.533v-.267L30 15.065l-.133-.267v-.266l-.133-.267v-.399l-.533-.8v-.133c0-.133-.133-.133-.133-.267v-.133l-.267-.4c-.133-.133-.267-.4-.267-.533l-.267-.4c-.133-.133-.267-.4-.4-.533l-.4-.4c-.133-.133-.267-.4-.4-.533l-.4-.533-.4-.533-1.2-.667-.533-.4-.533-.4-.533-.4-.667-.4-.667-.4s-.133 0-.133-.133c-.133-.133-.4-.133-.533-.267l-.667-.267h-.133l-.8-.267h-.133l-1.067-.4-.8-.133h-.133l-.8-.133h-1.733z'/></svg>")) no-repeat 50% 50%;
+    }
+  }
+}
+
+
+// Form validation
+
+.valid-feedback,
+.invalid-feedback,
+.valid-tooltip,
+.invalid-tooltip {
+  font-weight: $form-feedback-font-weight;
+}
+.valid-tooltip {
+  position: static;
+  color: $form-feedback-tooltip-valid-color;
+  background-color: $form-feedback-tooltip-valid-bg;
+}
+.invalid-tooltip {
+  position: static;
+  color: $form-feedback-tooltip-invalid-color;
+  background-color: $form-feedback-tooltip-invalid-bg;
+}
+
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-tooltip,
+.was-validated :valid ~ .valid-tooltip,
+.is-valid ~ .valid-tooltip {
+  display: table;
+}
+
+.was-validated .password-toggle .form-control:invalid,
+.was-validated .password-toggle .form-control.is-invalid,
+.was-validated .password-toggle .form-control:valid,
+.was-validated .password-toggle .form-control.is-valid {
+  padding-right: 4rem;
+  + .password-toggle-btn { right: 2.1rem; }
+}
+
+.was-validated .input-group .form-control:invalid,
+.was-validated .input-group .form-control:valid {
+  z-index: 4;
+}
+
+.was-validated :valid:not(:required):not(.form-check-input):not(.btn),
+.is-valid:not(:required):not(.form-check-input):not(.btn) {
+  background: none;
+  border-color: $input-border-color !important;
+  &:focus {
+    border-color: $input-focus-border-color !important;
+  }
+}
+.was-validated .input-group :valid:not(:required):not(.btn) {
+  border-color: transparent !important;
+  &:focus {
+    border-color: transparent !important;
+  }
+}
+
+
+// Form-check validation highlighting fix
+
+.was-validated .form-check-input:valid:checked,
+.form-check-input.is-valid:checked {
+  background-color: $form-check-input-checked-bg-color;
+  border-color: $form-check-input-checked-border-color;
+  @include box-shadow(none);
+}
+.was-validated .form-check-input:invalid:checked,
+.form-check-input.is-invalid:checked {
+  background-color: transparent;
+  border-color: $form-check-input-border;
+}
+.was-validated .form-check-input:valid ~ .form-check-label,
+.was-validated .form-check-input.is-valid ~ .form-check-label {
+  color: inherit;
+}
+
+
+// Range slider
+
+.range-slider {
+  --#{$prefix}range-slider-height: #{$range-slider-height};
+  --#{$prefix}range-slider-bg: #{$range-slider-bg};
+  --#{$prefix}range-slider-connect-bg: #{$range-slider-connect-bg};
+  --#{$prefix}range-slider-handle-size: #{$range-slider-handle-size};
+  --#{$prefix}range-slider-handle-bg: #{$range-slider-handle-bg};
+  --#{$prefix}range-slider-handle-border-radius: 50%;
+  --#{$prefix}range-slider-pips-color: var(--#{$prefix}body-color);
+  --#{$prefix}range-slider-pips-font-size: #{$range-slider-pips-font-size};
+  --#{$prefix}range-slider-pips-border-width: var(--#{$prefix}border-width);
+  --#{$prefix}range-slider-pips-border-color: #{darken($border-color, 6%)};
+  --#{$prefix}range-slider-tooltip-padding-y: #{$tooltip-padding-y};
+  --#{$prefix}range-slider-tooltip-padding-x: #{$tooltip-padding-x};
+  --#{$prefix}range-slider-tooltip-bg: #{$range-slider-tooltip-bg};
+  --#{$prefix}range-slider-tooltip-color: #{$range-slider-tooltip-color};
+  --#{$prefix}range-slider-tooltip-font-size: #{$range-slider-tooltip-font-size};
+  --#{$prefix}range-slider-tooltip-border-radius: #{$tooltip-border-radius};
+}
+
+.range-slider-ui {
+  height: var(--#{$prefix}range-slider-height);
+  margin: {
+    top: 3.25rem;
+    right: 0;
+    bottom: 1.75rem;
+    left: 0;
+  }
+  background-color: var(--#{$prefix}range-slider-bg);
+  border: 0;
+  box-shadow: none;
+
+  [data-pips] & {
+    margin-bottom: 3.5rem;
+  }
+
+  .noUi-connect {
+    background-color: var(--#{$prefix}range-slider-connect-bg);
+  }
+
+  .noUi-handle {
+    top: 50%;
+    width: var(--#{$prefix}range-slider-handle-size);
+    height: var(--#{$prefix}range-slider-handle-size);
+    margin-top: calc(var(--#{$prefix}range-slider-handle-size) * -.5);
+    background-color: var(--#{$prefix}range-slider-handle-bg);
+    border: 0;
+    border-radius: var(--#{$prefix}range-slider-handle-border-radius);
+    box-shadow: none;
+    &::before,
+    &::after { display: none; }
+    &:focus { outline: none; }
+  }
+
+  .noUi-marker-normal { display: none; }
+  .noUi-marker-horizontal {
+    &.noUi-marker {
+      width: var(--#{$prefix}range-slider-pips-border-width);
+      background-color: var(--#{$prefix}range-slider-pips-border-color);
+    }
+    &.noUi-marker-large { height: .75rem; }
+  }
+  .noUi-value {
+    padding-top: .125rem;
+    font-size: var(--#{$prefix}range-slider-pips-font-size);
+    color: var(--#{$prefix}range-slider-pips-color);
+  }
+
+  .noUi-tooltip {
+    padding: var(--#{$prefix}range-slider-tooltip-padding-y) var(--#{$prefix}range-slider-tooltip-padding-x);
+    line-height: 1.2;
+    color: var(--#{$prefix}range-slider-tooltip-color);
+    background-color: var(--#{$prefix}range-slider-tooltip-bg);
+    border: 0;
+    font: {
+      size: var(--#{$prefix}range-slider-tooltip-font-size);
+      weight: $font-weight-medium;
+    }
+    @include border-radius(var(--#{$prefix}range-slider-tooltip-border-radius));
+  }
+}
+html:not([dir="rtl"]) .range-slider-ui.noUi-horizontal .noUi-handle {
+  right: calc(var(--#{$prefix}range-slider-handle-size) * -.5);
+}
+
+
+// Subscription form status
+
+.subscription-status {
+  display: table;
+  font-size: $font-size-base * .8125;
+  @include border-radius(calc(var(--#{$prefix}border-radius) * .5));
+  &.status-success,
+  &.status-error {
+    padding: .375rem .75rem;
+    margin-top: .5rem;
+  }
+  &.status-success {
+    color: darken($success, 10%);
+    background-color: rgba($success, .1);
+  }
+  &.status-error {
+    color: $danger;
+    background-color: rgba($danger, .1);
+  }
+}
+
+
+// Credit card interactive icon
+
+.credit-card-icon {
+  width: 40px;
+  height: 26px;
+  background: {
+    image: url(../img/credit-cards.png);
+    repeat: no-repeat;
+    size: cover;
+    position: 0 0;
+  }
+
+  &.amex {
+    background-position: 0 -52px !important;
+  }
+  &.diners {
+    background-position: 0 -78px !important;
+  }
+  &.discover {
+    background-position: 0 -104px !important;
+  }
+  &.jcb {
+    background-position: 0 -130px !important;
+  }
+  &.mastercard {
+    background-position: 0 -156px !important;
+  }
+  &.visa {
+    background-position: 0 -182px !important;
+  }
+}
+
+
+// Toggle buttons
+
+.btn-check {
+  + .btn-outline-secondary {
+    --#{$prefix}btn-hover-bg: transparent;
+    --#{$prefix}btn-active-bg: transparent;
+
+    &:not(.btn-icon) {
+      --#{$prefix}btn-active-border-color: var(--#{$prefix}primary);
+      --#{$prefix}btn-active-color: var(--#{$prefix}primary);
+    }
+  }
+
+  + .btn-icon.btn-outline-secondary {
+    --#{$prefix}btn-border-color: transparent;
+    --#{$prefix}btn-hover-border-color: transparent;
+  }
+}
+
+
+// Count input
+
+.count-input {
+  display: inline-flex;
+  align-items: center;
+
+  .form-control {
+    width: 1.5rem;
+    padding: 0;
+    text-align: center;
+    -moz-appearance: textfield;  // stylelint-disable-line property-no-vendor-prefix
+    background: 0 !important;
+    border: 0;
+    font: {
+      size: var(--#{$prefix}body-font-size);
+      weight: $font-weight-medium;
+    }
+    &::-webkit-outer-spin-button,  // stylelint-disable-line property-no-vendor-prefix
+    &::-webkit-inner-spin-button {  // stylelint-disable-line property-no-vendor-prefix
+      margin: 0;
+      -webkit-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
+    }
+  }
+
+  .btn {
+    --#{$prefix}btn-color: var(--#{$prefix}gray-800) !important;
+    --#{$prefix}btn-hover-color: var(--#{$prefix}primary) !important;
+    --#{$prefix}btn-active-color: var(--#{$prefix}primary) !important;
+    --#{$prefix}btn-hover-border-color: transparent;
+    --#{$prefix}btn-active-border-color: transparent;
+    --#{$prefix}btn-font-weight: #{$font-weight-medium};
+  }
+}
+/* stylelint-enable selector-no-qualifying-type, selector-class-pattern, declaration-no-important */
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .form-select:not([data-bs-theme="light"]) option {
+      background-color: $dark;
+    }
+
+    .form-switch:not([data-bs-theme="light"]) {
+      .form-check-input {
+        background-color: $form-switch-bg-dark;
+        &:checked {
+          background-color: $form-switch-checked-bg;
+        }
+        &:not(:checked):not(:focus) {
+          --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image)};
+        }
+      }
+    }
+
+    .btn-check + .btn-outline-secondary {
+      --#{$prefix}btn-hover-bg: transparent;
+      --#{$prefix}btn-active-bg: transparent;
+
+      &.btn-icon {
+        --#{$prefix}btn-border-color: transparent;
+        --#{$prefix}btn-hover-border-color: transparent;
+      }
+    }
+    .btn-check:checked + .btn-icon.btn-outline-secondary {
+      --#{$prefix}btn-active-border-color: rgba(#{to-rgb($white)}, .3);
+    }
+
+    .range-slider:not([data-bs-theme="light"]) {
+      --#{$prefix}range-slider-pips-border-color: rgba(#{to-rgb($white)}, .2);
+    }
+
+    .credit-card-icon:not([data-bs-theme="light"]) {
+      background-position: 0 -26px;
+    }
+  }
+}

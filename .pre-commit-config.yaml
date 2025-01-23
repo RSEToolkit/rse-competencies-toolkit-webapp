@@ -5,15 +5,17 @@ repos:
       - id: check-merge-conflict
       - id: debug-statements
       - id: trailing-whitespace
+        exclude: ^main/static/assets/
       - id: end-of-file-fixer
       - id: pretty-format-json
+        exclude: ^main/static/assets/
         args: [--autofix, --indent, '4', --no-sort]
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.14.0
     hooks:
       - id: pretty-format-yaml
         args: [--autofix, --indent, '2', --offset, '2']
-        exclude: manage.py
+        exclude: manage.py|^main/static/assets/
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.31.0
     hooks:
@@ -29,13 +31,18 @@ repos:
     hooks:
       - id: mypy
         exclude: manage.py
-        additional_dependencies: ['django-stubs[compatible-mypy]', django-stubs-ext]
+        additional_dependencies:
+          - django-stubs[compatible-mypy]
+          - django-stubs-ext
+          - django-bootstrap5
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.43.0
     hooks:
       - id: markdownlint-fix
+        exclude: ^main/static/assets/
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.0
     hooks:
       - id: codespell
         args: [-I, .codespell_ignore.txt]
+        exclude: ^main/static/assets/|^package-lock.json$

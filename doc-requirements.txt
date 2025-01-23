@@ -21,6 +21,10 @@ colorama==0.4.6
     #   griffe
     #   mkdocs-material
 django==5.1.5
+    # via
+    #   django-bootstrap5
+    #   rse_competencies_toolkit (pyproject.toml)
+django-bootstrap5==24.3
     # via rse_competencies_toolkit (pyproject.toml)
 ghp-import==2.1.0
     # via mkdocs

@@ -127,3 +127,30 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Globally ignore auto-generated files and npm / bower modules
+# You should customize this list as applicable to your project.
+.DS_Store
+*/.DS_Store
+.DS_Store?
+Thumbs.db
+node_modules/
+/node_modules
+/bower_components
+bower_components/
+.vscode
+*.sublime*
+/.idea
+.sass-cache
+.bowerrc
+.grunt
+.sass-lint.yml
+*.zip
+*.cfg
+*.jar
+*.log
+*.app
+*.exe
+*.war
+!node/build
+main/static/assets/img2

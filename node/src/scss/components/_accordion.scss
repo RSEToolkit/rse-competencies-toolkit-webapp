@@ -1,0 +1,89 @@
+//
+// Accordion
+// --------------------------------------------------
+
+
+// Default style
+
+.accordion {
+  --#{$prefix}accordion-color: var(--#{$prefix}body-color);
+  --#{$prefix}accordion-spacer: #{$accordion-spacer};
+  --#{$prefix}accordion-btn-color: #{$accordion-button-color};
+  --#{$prefix}accordion-btn-font-size: #{$accordion-button-font-size};
+  --#{$prefix}accordion-btn-font-weight: #{$accordion-button-font-weight};
+}
+
+.accordion-item {
+  @include border-radius(var(--#{$prefix}accordion-border-radius) !important); // stylelint-disable-line declaration-no-important
+  &:not(:last-child) {
+    margin-bottom: var(--#{$prefix}accordion-spacer);
+  }
+}
+
+.accordion-button {
+  @include border-radius(var(--#{$prefix}accordion-border-radius) !important); // stylelint-disable-line declaration-no-important
+  @include font-size(var(--#{$prefix}accordion-btn-font-size));
+  font-weight: var(--#{$prefix}accordion-btn-font-weight);
+  line-height: $line-height-base;
+}
+
+.accordion-body {
+  padding-top: 0;
+}
+
+
+// Alternative style
+
+.accordion-alt {
+  --#{$prefix}accordion-btn-font-size: #{$h3-font-size};
+
+  .accordion-item {
+    background: none !important; // stylelint-disable-line declaration-no-important
+    border-radius: 0 !important; // stylelint-disable-line declaration-no-important
+    &:not(:last-child) {
+      margin-bottom: 0;
+      @include media-breakpoint-up(sm) {
+        margin-bottom: calc(var(--#{$prefix}accordion-spacer) * .25);
+      }
+    }
+  }
+  .accordion-button {
+    padding: {
+      top: calc(var(--#{$prefix}accordion-spacer) * .75);
+      right: 0;
+      bottom: var(--#{$prefix}accordion-spacer);
+      left: 0;
+    }
+    &::after {
+      width: .5em;
+      height: .5em;
+      background-size: .5em;
+    }
+  }
+  .accordion-body {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+
+// Orders accordion
+
+.accordion-orders .accordion-button {
+  &::after {
+    margin: {
+      right: $spacer * .25;
+      left: $spacer * .5;
+    }
+  }
+
+  .accordion-button-img {
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+  }
+  &.collapsed .accordion-button-img {
+    opacity: 1;
+  }
+}

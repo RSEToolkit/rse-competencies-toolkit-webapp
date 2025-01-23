@@ -1,0 +1,6 @@
+*.scss
+*.html
+dist
+main/static/assets
+node_modules
+.browserslistrc

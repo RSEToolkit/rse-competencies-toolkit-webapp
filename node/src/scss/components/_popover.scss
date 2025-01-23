@@ -1,0 +1,32 @@
+//
+// Popover
+// --------------------------------------------------
+
+
+.popover {
+  --#{$prefix}popover-arrow-border: var(--#{$prefix}border-color);
+  box-shadow: $popover-box-shadow;
+}
+
+.popover-header {
+  width: calc(100% - (var(--#{$prefix}popover-header-padding-x) * 2));
+  margin: auto;
+  padding: {
+    right: 0;
+    left: 0;
+  }
+  border-bottom-color: var(--#{$prefix}border-color);
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .popover {
+      --#{$prefix}popover-border-color: #{$popover-border-color-dark};
+
+      box-shadow: $popover-box-shadow-dark;
+    }
+  }
+}

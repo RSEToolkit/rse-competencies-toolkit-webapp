@@ -1,13 +1,18 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>{% block title %}RSE Competencies Toolkit{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-      {% block content %}{% endblock %}
-</body>
+<html lang="en" data-bs-theme="light">
+  <head>{% include "main/snippets/head.html" %}</head>
+  <body>
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      {% include "main/snippets/navbar.html" %}
+      {% block content %}
+      {% endblock content %}
+    </main>
+    {% include "main/snippets/footer.html" %}
+  </body>
 </html>

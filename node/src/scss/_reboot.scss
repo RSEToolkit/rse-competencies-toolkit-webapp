@@ -1,0 +1,129 @@
+//
+// Reboot
+// --------------------------------------------------
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Sticky footer
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.page-wrapper {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+
+// Links
+a {
+  transition: $link-transition;
+  &:focus { outline: none; }
+}
+
+// Background transition for links
+/* stylelint-disable selector-no-qualifying-type */
+a[class^="bg-"]:not(.btn),
+a[class*="bg-"]:not(.btn) {
+  transition: background-color .25s ease;
+}
+/* stylelint-enable selector-no-qualifying-type */
+
+
+// Images
+// Responsive images (ensure images don"t scale beyond their parents)
+img,
+figure {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+svg { max-width: 100%; }
+.dark-mode-img { display: none; }
+
+// Responsive iframes
+iframe {
+  width: 100%;
+}
+
+// Text Selection Color
+::selection {
+  background: var(--#{$prefix}user-selection-color);
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+small { font-weight: inherit; }
+
+// Disable button :focus outline
+button:focus {
+  outline: none;
+}
+
+// Base font icons styles
+[class*=" #{$icon-prefix}"],
+[class^="#{$icon-prefix}"] {
+  display: inline-flex;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+// Replace Bootstrap icons with Around icon font
+.bi-chevron-right::before,
+.bi-chevron-left::before {
+  display: block;
+  width: 1em;
+  height: 1em;
+  content: "";
+  background-color: currentcolor;
+  -webkit-mask-size: cover; // stylelint-disable-line property-no-vendor-prefix
+  mask-size: cover;
+}
+.bi-chevron-right::before {
+  -webkit-mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M12.667 8.667c.4-.4 1.067-.4 1.467 0l6.667 6.667c.4.4.4 1.067 0 1.467l-6.667 6.667c-.4.4-1.067.4-1.467 0s-.4-1.067 0-1.467l6-6-6-6c-.4-.4-.4-.933 0-1.333z'/></svg>")) no-repeat 50% 50%; // stylelint-disable-line property-no-vendor-prefix
+  mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M12.667 8.667c.4-.4 1.067-.4 1.467 0l6.667 6.667c.4.4.4 1.067 0 1.467l-6.667 6.667c-.4.4-1.067.4-1.467 0s-.4-1.067 0-1.467l6-6-6-6c-.4-.4-.4-.933 0-1.333z'/></svg>")) no-repeat 50% 50%;
+}
+.bi-chevron-left::before {
+  -webkit-mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M19.333 8.667c.4.4.4 1.067 0 1.467l-5.867 5.867 6 6c.4.4.4 1.067 0 1.467s-1.067.4-1.467 0l-6.667-6.667c-.4-.4-.4-1.067 0-1.467l6.667-6.667c.4-.4.933-.4 1.333 0z'/></svg>")) no-repeat 50% 50%; // stylelint-disable-line property-no-vendor-prefix
+  mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M19.333 8.667c.4.4.4 1.067 0 1.467l-5.867 5.867 6 6c.4.4.4 1.067 0 1.467s-1.067.4-1.467 0l-6.667-6.667c-.4-.4-.4-1.067 0-1.467l6.667-6.667c.4-.4.933-.4 1.333 0z'/></svg>")) no-repeat 50% 50%;
+}
+
+
+// Section that is wider that container on left/right side
+
+.container-start {
+  margin-left: calc((100% - (map-get($container-max-widths, "xxl") - $grid-gutter-width)) / 2);
+}
+.container-end {
+  margin-right: calc((100% - (map-get($container-max-widths, "xxl") - $grid-gutter-width)) / 2);
+}
+@include media-breakpoint-down(xxl) {
+  .container-start {
+    margin-left: calc((100% - (map-get($container-max-widths, "xl") - $grid-gutter-width)) / 2);
+  }
+  .container-end {
+    margin-right: calc((100% - (map-get($container-max-widths, "xl") - $grid-gutter-width)) / 2);
+  }
+}
+@include media-breakpoint-down(sm) {
+  .container-start,
+  .container-end {
+    width: 100%;
+    padding: 0 $grid-gutter-width * .5;
+    margin: {
+      right: auto;
+      left: auto;
+    }
+  }
+}

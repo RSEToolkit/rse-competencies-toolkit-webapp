@@ -1,0 +1,59 @@
+//
+// Toasts
+// --------------------------------------------------
+
+
+.toast {
+  --#{$prefix}toast-header-font-size: #{$toast-header-font-size};
+}
+
+.toast-header {
+  position: relative;
+  border: 0;
+  font: {
+    size: var(--#{$prefix}toast-header-font-size);
+    weight: var(--#{$prefix}heading-font-weight);
+  }
+
+  &::after {
+    position: absolute;
+    bottom: calc(var(--#{$prefix}toast-border-width) * -1);
+    left: var(--#{$prefix}toast-padding-x);
+    width: calc(100% - (var(--#{$prefix}toast-padding-x) * 2));
+    height: var(--#{$prefix}toast-border-width);
+    content: "";
+    background-color: var(--#{$prefix}toast-header-border-color);
+  }
+
+  &[class^="bg-"]::after,
+  &[class*=" bg-"]::after {
+    display: none;
+  }
+  .btn-close {
+    padding-right: 0;
+    margin-right: 0;
+    font-size: .875em;
+  }
+}
+
+.toast-body {
+  padding-top: $toast-padding-y * 1.1;
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .toast:not([data-bs-theme="light"]) {
+      --#{$prefix}toast-border-color: #{$toast-border-color-dark};
+
+      box-shadow: $toast-box-shadow-dark;
+    }
+    .toast-header {
+      &::after {
+        display: block !important; // stylelint-disable-line declaration-no-important
+      }
+    }
+  }
+}

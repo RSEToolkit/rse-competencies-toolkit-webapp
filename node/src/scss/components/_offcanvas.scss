@@ -1,0 +1,48 @@
+//
+// Offcanvas
+// --------------------------------------------------
+
+
+// Header
+
+.offcanvas-header {
+  padding: calc(var(--#{$prefix}offcanvas-padding-y) * .75) var(--#{$prefix}offcanvas-padding-x);
+}
+
+
+// Body
+
+.offcanvas-body {
+  display: block !important; // stylelint-disable-line declaration-no-important
+}
+
+
+// Add shadow when offcanvas is shown
+
+.offcanvas,
+.offcanvas-sm,
+.offcanvas-md,
+.offcanvas-lg,
+.offcanvas-xl,
+.offcanvas-xxl {
+  &.show {
+    box-shadow: var(--#{$prefix}offcanvas-box-shadow);
+  }
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .offcanvas,
+    .offcanvas-sm,
+    .offcanvas-md,
+    .offcanvas-lg,
+    .offcanvas-xl,
+    .offcanvas-xxl {
+      --#{$prefix}offcanvas-bg: var(--#{$prefix}dark);
+      --#{$prefix}offcanvas-box-shadow: #{$offcanvas-box-shadow-dark};
+    }
+  }
+}

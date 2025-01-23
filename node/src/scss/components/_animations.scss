@@ -1,0 +1,37 @@
+//
+// Animations
+// --------------------------------------------------
+
+
+@keyframes rotate-cw {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-ccw {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes swinging {
+  0% { transform: rotate(10deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes heartbeat {
+  0%,
+  40%,
+  80%,
+  100% { transform: scale(.8); }
+  20%,
+  60% { transform: scale(1); }
+}
+.heartbeat {
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes blinking {
+  from { opacity: 0; }
+}
+.blinking {
+  animation: blinking 1s infinite;
+}

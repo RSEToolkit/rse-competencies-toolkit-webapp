@@ -1,0 +1,16 @@
+//
+// Charts
+// --------------------------------------------------
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .ct-grid {
+      stroke: rgba($white, .22);
+    }
+    .ct-label {
+      color: rgba($white, .5);
+    }
+  }
+}

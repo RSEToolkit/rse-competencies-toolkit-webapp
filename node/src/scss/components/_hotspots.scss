@@ -1,0 +1,102 @@
+//
+// Hotspots
+// --------------------------------------------------
+
+
+// General styles
+
+.hotspots,
+.hotspots-alt {
+  position: relative;
+
+  .hotspot {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+  }
+
+  .hotspot-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color .25s ease-in-out, background-color .25s ease-in-out;
+  }
+}
+
+
+// Default variant
+
+.hotspots {
+  --#{$prefix}hotspots-size: #{$hotspots-size};
+  --#{$prefix}hotspots-border-width: #{$hotspots-border-width};
+  --#{$prefix}hotspots-border-color: #{$hotspots-border-color};
+  --#{$prefix}hotspots-color: #{$hotspots-color};
+  --#{$prefix}hotspots-inner-bg: #{$hotspots-inner-bg};
+  --#{$prefix}hotspots-hover-border-color: #{$hotspots-hover-border-color};
+  --#{$prefix}hotspots-hover-color: #{$hotspots-hover-color};
+  --#{$prefix}hotspots-hover-inner-bg: #{$hotspots-hover-inner-bg};
+
+  .hotspot {
+    width: var(--#{$prefix}hotspots-size);
+    height: var(--#{$prefix}hotspots-size);
+    border: var(--#{$prefix}hotspots-border-width) solid var(--#{$prefix}hotspots-border-color);
+  }
+
+  .hotspot-inner {
+    width: calc(var(--#{$prefix}hotspots-size) - 1rem);
+    height: calc(var(--#{$prefix}hotspots-size) - 1rem);
+    font-weight: $font-weight-semibold;
+    color: var(--#{$prefix}hotspots-color);
+    background-color: var(--#{$prefix}hotspots-inner-bg);
+  }
+
+  [class^="ai-"],
+  [class*=" ai-"] {
+    font-size: 1.2em;
+  }
+
+  .hotspot:hover,
+  .hotspot:focus {
+    border-color: var(--#{$prefix}hotspots-hover-border-color);
+
+    .hotspot-inner {
+      color: var(--#{$prefix}hotspots-hover-color);
+      background-color: var(--#{$prefix}hotspots-hover-inner-bg);
+    }
+  }
+}
+
+
+// Alternative variant
+
+.hotspots-alt {
+  --#{$prefix}hotspots-size: #{$hotspots-alt-size};
+  --#{$prefix}hotspots-border-width: #{$hotspots-alt-border-width};
+  --#{$prefix}hotspots-border-color: #{$hotspots-alt-border-color};
+  --#{$prefix}hotspots-bg: #{$hotspots-alt-bg};
+  --#{$prefix}hotspots-inner-bg: #{$hotspots-alt-inner-bg};
+  --#{$prefix}hotspots-hover-border-color: #{$hotspots-alt-hover-border-color};
+  --#{$prefix}hotspots-hover-bg: #{$hotspots-alt-hover-bg};
+  --#{$prefix}hotspots-hover-inner-bg: #{$hotspots-alt-hover-inner-bg};
+
+  .hotspot {
+    background-color: var(--#{$prefix}hotspots-bg);
+    backdrop-filter: blur(.25rem);
+
+    &:hover,
+    &:focus {
+      background-color: var(--#{$prefix}hotspots-hover-bg);
+    }
+  }
+
+  .hotspot-inner {
+    width: calc(var(--#{$prefix}hotspots-size) - 1.25rem);
+    height: calc(var(--#{$prefix}hotspots-size) - 1.25rem);
+  }
+}

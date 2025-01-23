@@ -1,0 +1,75 @@
+//
+// Input group
+// --------------------------------------------------
+
+
+.input-group {
+  --#{$prefix}input-group-padding-y: #{$input-group-padding-y};
+  --#{$prefix}input-group-padding-x: #{$input-group-padding-x};
+  --#{$prefix}input-group-border-color: #{$input-group-border-color};
+  --#{$prefix}input-group-border-width: #{$input-border-width};
+  --#{$prefix}input-group-border-radius: #{$input-group-border-radius};
+
+  padding: var(--#{$prefix}input-group-padding-y) var(--#{$prefix}input-group-padding-x);
+  border: var(--#{$prefix}input-group-border-width) solid var(--#{$prefix}input-group-border-color);
+  @include border-radius(var(--#{$prefix}input-group-border-radius));
+  .form-control,
+  .form-select {
+    border-color: transparent !important; // stylelint-disable-line declaration-no-important
+    border-radius: 0 !important; // stylelint-disable-line declaration-no-important
+  }
+
+  [class^="#{$icon-prefix}"],
+  [class*=" #{$icon-prefix}"] {
+    font-size: 1.25em;
+  }
+
+  .btn {
+    --#{$prefix}btn-padding-y: #{$btn-padding-y};
+    --#{$prefix}btn-padding-x: #{$btn-padding-x};
+    --#{$prefix}btn-border-radius: #{$btn-border-radius};
+
+    padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+    &:not(.rounded-pill) {
+      @include border-radius(var(--#{$prefix}btn-border-radius) !important); // stylelint-disable-line declaration-no-important
+    }
+  }
+}
+
+
+// Sizing
+
+.input-group-lg {
+  --#{$prefix}input-group-border-radius: #{$input-group-border-radius-lg};
+
+  .btn {
+    --#{$prefix}btn-padding-y: #{$btn-padding-y-lg};
+    --#{$prefix}btn-padding-x: #{$btn-padding-x-lg};
+    --#{$prefix}btn-border-radius: #{$btn-border-radius-lg};
+  }
+}
+.input-group-sm {
+  --#{$prefix}input-group-border-radius: #{$input-group-border-radius-sm};
+
+  .btn {
+    --#{$prefix}btn-padding-y: #{$btn-padding-y-sm};
+    --#{$prefix}btn-padding-x: #{$btn-padding-x-sm};
+    --#{$prefix}btn-border-radius: #{$btn-border-radius-sm};
+  }
+}
+
+
+// Textual addon
+
+.input-group-text {
+  border-radius: 0 !important; // stylelint-disable-line declaration-no-important
+  + .form-control,
+  + .form-select,
+  + .input-group-text {
+    padding-left: 0;
+  }
+}
+.form-control + .input-group-text,
+.form-select + .input-group-text {
+  padding-left: 0;
+}

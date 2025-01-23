@@ -1,0 +1,163 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}
+    RSE Competencies Toolkit
+{% endblock title %}
+{% block content %}
+    Welcome to the privacy page for the RSE Competencies Toolkit!
+    <!-- Page container-->
+    <section class="container pt-5 mt-5">
+        <!-- Breadcrumb-->
+        <nav aria-label="breadcrumb">
+            <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'privacy' %}">Blog</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Single post v.3</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-lg-9 col-xl-8 pe-lg-4 pe-xl-0">
+                <!-- Post title + post meta -->
+                <h1 class="pb-2 pb-lg-3">How to look for inspiration for new goals in life and remember to give yourself a break?</h1>
+                <div class="d-flex flex-wrap align-items-center justify-content-between border-bottom mb-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <span class="fs-sm me-2">Share post:</span>
+                        <div class="d-flex">
+                            <a class="nav-link p-2 me-2"
+                               href="#"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="Instagram"
+                               aria-label="Instagram">
+                                <i class="ai-instagram"></i>
+                            </a>
+                            <a class="nav-link p-2 me-2"
+                               href="#"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="Facebook"
+                               aria-label="Facebook">
+                                <i class="ai-facebook"></i>
+                            </a>
+                            <a class="nav-link p-2 me-2"
+                               href="#"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="Telegram"
+                               aria-label="Telegram">
+                                <i class="ai-telegram fs-sm"></i>
+                            </a>
+                            <a class="nav-link p-2"
+                               href="#"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="X"
+                               aria-label="X">
+                                <i class="ai-x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post content -->
+                <p class="fs-lg pt-2 pt-sm-3">
+                    Dolor laoreet fermentum lectus praesent aenean molestie mollis integer. Sem ullamcorper montes, lorem ullamcorper orci, pellentesque ipsum malesuada gravida. Donec imperdiet nulla suscipit in. Dignissim ornare ac lorem consectetur massa a. Pellentesque urna pharetra, quis maecenas. Sit dolor amet nulla aenean eu, ac. Nisl mi tempus, iaculis viverra vestibulum scelerisque imperdiet montes. Mauris massa elit pretium elementum eget tortor quis. Semper interdum lectus odio diam.
+                </p>
+                <p class="fs-lg mb-3">
+                    Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim. Lorem amet nisl, enim mi aenean mauris. Porta nisl a ultrices ut libero id. Gravida a mi neque, tristique justo, et pharetra. Laoreet nulla est nulla cras ac arcu sed mattis tristique. Morbi convallis suspendisse enim blandit massa. Cursus augue dui mattis morbi velit.
+                </p>
+                <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">Dolor laoreet fermentum lectus praesent aenean</h2>
+                <p class="fs-lg pb-4 pb-xl-5">
+                    Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim. Lorem amet nisl, enim mi aenean mauris. Porta nisl a ultrices ut libero id. Gravida a mi neque, tristique justo, et pharetra. Laoreet nulla est nulla cras ac arcu sed mattis tristique. Morbi convallis suspendisse enim blandit massa. Cursus augue dui mattis morbi velit.
+                </p>
+                <figure class="figure">
+                    <img class="figure-img rounded-5 mb-3"
+                         src="{% static 'assets/img/blog/single/image.jpg' %}"
+                         alt="Image">
+                    <figcaption class="figure-caption">Image source tristique justo et pharetra</figcaption>
+                </figure>
+                <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">Cursus augue dui mattis morbi velit</h2>
+                <p class="fs-lg pb-2 pb-lg-0 mb-4 mb-lg-5">
+                    Proin non congue sem, sed tristique ante. Donec et sollicitudin tellus. Duis maximus, dui eget egestas mattis, purus ex tempor nulla, quis tempor sapien neque at nisl. Aliquam eu nisi ut nisl ultrices posuere. Praesent dignissim efficitur nisi, a hendrerit ipsum elementum sit amet. Vivamus non ante nisl. Nunc faucibus velit at eros mollis semper. Curabitur aliquam eros tellus, nec facilisis nisl finibus sit amet. Ut et dolor nec lorem gravida elementum.
+                </p>
+                <div class="card border-0 bg-secondary mb-3">
+                    <div class="card-body">
+                        <figure>
+                            <blockquote class="blockquote">
+                                <p>
+                                    Ut pellentesque bibendum dignissim a molestie ultrices diam ut vel neque tincidunt eget sed ut quis sit semper nunc at etiam lacinia quam laoreet eget id sapien a pharetra, ornare diam dignissim  neque tincidunt.
+                                </p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">Darlene Robertson</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">Lorem ipsum dolor sit amet consectetur</h2>
+                <p class="fs-lg">
+                    Ut pellentesque bibendum dignissim a molestie. Ultrices diam ut vel neque tincidunt eget. Sed ut quis sit semper nunc at etiam lacinia. Quam laoreet eget id sapien a pharetra, ornare diam dignissim.
+                </p>
+                <ul>
+                    <li class="mb-1">Quam laoreet eget id sapien</li>
+                    <li class="mb-1">Morbi convallis suspendisse</li>
+                    <li class="mb-1">Vivamus non ante</li>
+                    <li class="mb-1">Praesent dignissim efficitur</li>
+                    <li class="mb-1">Gravida a mi neque</li>
+                </ul>
+                <p class="fs-lg">
+                    Donec diam neque, efficitur vitae ante a, eleifend placerat est. Phasellus dapibus scelerisque diam, eu rhoncus lorem vulputate lobortis. Praesent pulvinar venenatis mauris, eget fringilla sem.
+                </p>
+                <!-- Tags -->
+                <div class="d-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2">
+                    <h3 class="h6 py-1 mb-0 me-4">Relevant tags:</h3>
+                    <a class="nav-link fs-sm py-1 px-0 me-3" href="#">
+                        <span class="text-primary">#</span>Inspiration
+                    </a>
+                    <a class="nav-link fs-sm py-1 px-0 me-3" href="#">
+                        <span class="text-primary">#</span>Travel
+                    </a>
+                    <a class="nav-link fs-sm py-1 px-0 me-3" href="#">
+                        <span class="text-primary">#</span>Books
+                    </a>
+                </div>
+            </div>
+            <!-- Sidebar (offcanvas on screens < 992px) -->
+            <aside class="col-lg-3 offset-xl-1">
+                <div class="offcanvas-lg offcanvas-end" id="sidebar">
+                    <div class="offcanvas-header">
+                        <h4 class="offcanvas-title">Sidebar</h4>
+                        <button class="btn-close ms-auto"
+                                type="button"
+                                data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebar"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!-- Popular posts -->
+                        <h4 class="pt-1 pt-lg-0 mt-lg-n2">Most popular:</h4>
+                        <div class="mb-lg-5 mb-4">
+                            <article class="position-relative pb-2 mb-3 mb-lg-4">
+                                <img class="rounded-5"
+                                     src="{% static 'assets/img/blog/list/01.jpg' %}"
+                                     alt="Post image">
+                                <h5 class="h6 mt-3">
+                                    <a class="stretched-link" href="#">5 Trends in AI Research</a>
+                                </h5>
+                            </article>
+                            <article class="position-relative pb-2 mb-3 mb-lg-4">
+                                <img class="rounded-5"
+                                     src="{% static 'assets/img/blog/list/02.jpg' %}"
+                                     alt="Post image">
+                                <h5 class="h6 mt-3">
+                                    <a class="stretched-link" href="#">Understanding Python's Data Science Libraries</a>
+                                </h5>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+{% endblock %}

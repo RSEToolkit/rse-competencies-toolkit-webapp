@@ -1,0 +1,18 @@
+//
+// Gallery
+// based on https://github.com/sachinchoolur/lightgallery.js
+// --------------------------------------------------
+
+.lg-backdrop { z-index: $zindex-modal-backdrop + 5; }
+.lg-outer {
+  z-index: $zindex-modal + 5;
+  .lg-thumb-item:hover,
+  .lg-thumb-item.active {
+    border-color: var(--#{$prefix}primary);
+  }
+}
+.lg-on { overflow: hidden; }
+.lg-item:focus,
+.lg:focus,
+.lg-outer:focus,
+.lg-inner:focus { outline: none; }

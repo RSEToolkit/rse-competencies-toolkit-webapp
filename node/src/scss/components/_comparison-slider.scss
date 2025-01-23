@@ -1,0 +1,16 @@
+//
+// Image Comparison Slider
+// Based on https://github.com/sneas/img-comparison-slider
+// --------------------------------------------------
+
+img-comparison-slider {
+  display: block;
+
+  --divider-width: #{$comparison-slider-divider-width};
+  --divider-color: #{$comparison-slider-divider-color};
+  --default-handle-opacity: 1;
+
+  &:focus {
+    outline: none;
+  }
+}

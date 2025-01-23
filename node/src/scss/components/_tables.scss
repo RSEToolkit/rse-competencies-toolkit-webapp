@@ -1,0 +1,45 @@
+//
+// Tables
+// --------------------------------------------------
+
+.table {
+  --#{$prefix}table-th-color: #{$table-th-color};
+
+  thead th,
+  tbody th {
+    color: var(--#{$prefix}table-th-color) !important; // stylelint-disable-line declaration-no-important
+  }
+}
+.table-dark {
+  --#{$prefix}table-th-color: #{$white};
+  --#{$prefix}table-color: #{$table-dark-color};
+  --#{$prefix}table-striped-color: var(--#{$prefix}table-dark-color);
+}
+
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: darken($border-color, 10%);
+}
+.table.table-dark > :not(:last-child) > :last-child > * {
+  border-bottom-color: rgba($white, .3);
+}
+
+// Remove highlight border color between thead, tbody and tfoot.
+.table > :not(:first-child) {
+  border-top: 0;
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .table:not([data-bs-theme="light"]) {
+      --#{$prefix}table-striped-bg: rgba(#{to-rgb($white)}, #{$table-striped-bg-factor});
+      --#{$prefix}table-hover-bg: rgba(#{to-rgb($white)}, #{$table-hover-bg-factor});
+      --#{$prefix}table-hover-color: #{$table-hover-color};
+      > :not(:last-child) > :last-child > * {
+        border-bottom-color: rgba($white, .3);
+      }
+    }
+  }
+}

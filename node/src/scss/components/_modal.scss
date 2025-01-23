@@ -1,0 +1,54 @@
+//
+// Modal
+// --------------------------------------------------
+
+
+.modal-content {
+  padding: {
+    right: var(--#{$prefix}modal-padding);
+    left: var(--#{$prefix}modal-padding);
+  }
+}
+
+.modal-header,
+.modal-footer {
+  padding: var(--#{$prefix}modal-header-padding-y) 0;
+}
+
+.modal-body {
+  margin: {
+    right: calc(var(--#{$prefix}modal-padding) * -1);
+    left: calc(var(--#{$prefix}modal-padding) * -1);
+  }
+}
+
+@media (max-width: 450px) {
+  .modal-header,
+  .modal-footer {
+    padding: calc(var(--#{$prefix}modal-header-padding-y) * .875) 0;
+  }
+  .modal-content {
+    padding: {
+      right: calc(var(--#{$prefix}modal-padding) * .75);
+      left: calc(var(--#{$prefix}modal-padding) * .75);
+    }
+  }
+  .modal-body {
+    padding: calc(var(--#{$prefix}modal-padding) * .75);
+    margin: {
+      right: calc(var(--#{$prefix}modal-padding) * -.75);
+      left: calc(var(--#{$prefix}modal-padding) * -.75);
+    }
+  }
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .modal {
+      --#{$prefix}modal-bg: var(--#{$prefix}dark);
+    }
+  }
+}

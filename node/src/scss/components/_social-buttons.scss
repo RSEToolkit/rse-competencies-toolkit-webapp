@@ -1,0 +1,25 @@
+//
+// Social buttons
+// --------------------------------------------------
+
+/* stylelint-disable declaration-no-important */
+@each $brand, $value in $social-buttons {
+  .btn-#{$brand} {
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white !important;
+      background-color: $value !important;
+      border-color: $value !important;
+    }
+  }
+}
+
+.btn-snapchat {
+  &:hover,
+  &:focus,
+  &:active {
+    color: $gray-800 !important;
+  }
+}
+/* stylelint-enable declaration-no-important */

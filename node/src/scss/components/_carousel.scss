@@ -1,0 +1,316 @@
+//
+// Carousel
+// Based on https://github.com/nolimits4web/swiper
+// --------------------------------------------------
+
+
+// Navigation (Prev / Next) buttons
+
+.btn-prev,
+.btn-next {
+  transition: all .25s ease-in-out;
+  > [class^="#{$icon-prefix}"],
+  > [class*=" #{$icon-prefix}"] {
+    font-size: 1.4em;
+  }
+}
+
+.swiper-button-disabled,
+.swiper-button-disabled:disabled {
+  opacity: .55;
+}
+
+.swiper {
+  .btn-prev:not(.position-static),
+  .btn-next:not(.position-static) {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+  }
+  .btn-prev {
+    left: $spacer * 1.25;
+  }
+  .btn-next {
+    right: $spacer * 1.25;
+  }
+}
+
+.swiper-nav-onhover {
+  .btn-prev,
+  .btn-next {
+    opacity: 0 !important; // stylelint-disable-line declaration-no-important
+  }
+  &:hover .btn-prev,
+  &:hover .btn-next {
+    opacity: 1 !important; // stylelint-disable-line declaration-no-important
+    &.swiper-button-disabled,
+    &.swiper-button-disabled:disabled {
+      opacity: .55 !important; // stylelint-disable-line declaration-no-important
+    }
+  }
+}
+
+
+// Pagination
+
+// Bullets
+
+.swiper-pagination {
+  --#{$prefix}carousel-pagination-bullet-size: #{$carousel-bullet-size};
+  --#{$prefix}carousel-pagination-bullet-spacer: #{$carousel-bullet-spacer};
+  --#{$prefix}carousel-pagination-bullet-border-color: #{$carousel-bullet-border-color};
+  --#{$prefix}carousel-pagination-bullet-border-width: #{$carousel-bullet-border-width};
+  --#{$prefix}carousel-pagination-bullet-border-radius: #{$carousel-bullet-border-radius};
+  --#{$prefix}carousel-pagination-bullet-bg: #{$carousel-bullet-bg};
+  --#{$prefix}carousel-pagination-bullet-active-border-color: #{$carousel-bullet-active-border-color};
+  --#{$prefix}carousel-pagination-bullet-active-bg: #{$carousel-bullet-active-bg};
+  --#{$prefix}carousel-pagination-progressbar-height: #{$carousel-progressbar-height};
+  --#{$prefix}carousel-pagination-progressbar-bg: #{$carousel-progressbar-bg};
+  --#{$prefix}carousel-pagination-progressbar-fill-bg: #{$carousel-progressbar-fill-bg};
+
+  bottom: $spacer * 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  width: var(--#{$prefix}carousel-pagination-bullet-size);
+  height: var(--#{$prefix}carousel-pagination-bullet-size);
+  background-color: var(--#{$prefix}carousel-pagination-bullet-bg);
+  border: var(--#{$prefix}carousel-pagination-bullet-border-width) solid var(--#{$prefix}carousel-pagination-bullet-border-color);
+  @include border-radius(var(--#{$prefix}carousel-pagination-bullet-border-radius));
+  opacity: 1;
+  transition: $carousel-bullet-transition;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--#{$prefix}carousel-pagination-bullet-active-bg);
+  border-color: var(--#{$prefix}carousel-pagination-bullet-active-border-color);
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: $spacer * 1.25;
+  .swiper-pagination-bullet {
+    margin: {
+      right: calc(var(--#{$prefix}carousel-pagination-bullet-spacer) * .5);
+      left: calc(var(--#{$prefix}carousel-pagination-bullet-spacer) * .5);
+    }
+  }
+}
+
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-vertical {
+  right: $spacer * 1.25;
+  flex-direction: column;
+  .swiper-pagination-bullet {
+    margin: {
+      top: calc(var(--#{$prefix}carousel-pagination-bullet-spacer) * .5);
+      bottom: calc(var(--#{$prefix}carousel-pagination-bullet-spacer) * .5);
+    }
+  }
+}
+
+
+// Thumbnails
+
+.swiper-thumbnails {
+  --#{$prefix}carousel-thumbnail-width: #{$carousel-thumbnail-width};
+  --#{$prefix}carousel-thumbnail-border-width: #{$carousel-thumbnail-border-width};
+  --#{$prefix}carousel-thumbnail-border-radius: #{$carousel-thumbnail-border-radius};
+  --#{$prefix}carousel-thumbnail-border-color: #{$carousel-thumbnail-border-color};
+  --#{$prefix}carousel-thumbnail-opacity: #{$carousel-thumbnail-opacity};
+  --#{$prefix}carousel-thumbnail-hover-opacity: #{$carousel-thumbnail-hover-opacity};
+  --#{$prefix}carousel-thumbnail-active-border-color: #{$carousel-thumbnail-active-border-color};
+  --#{$prefix}carousel-thumbnail-active-opacity: #{$carousel-thumbnail-active-opacity};
+  --#{$prefix}carousel-thumbnail-spacer: #{$carousel-thumbnail-spacer};
+
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+
+  &:not(.justify-content-center) {
+    padding-top: var(--#{$prefix}carousel-thumbnail-spacer);
+    margin-left: calc(var(--#{$prefix}carousel-thumbnail-spacer) * .5 * -1);
+  }
+
+  &.justify-content-end {
+    margin: {
+      right: calc(var(--#{$prefix}carousel-thumbnail-spacer) * .5 * -1);
+      left: 0;
+    }
+  }
+}
+
+.swiper-thumbnail {
+  width: var(--#{$prefix}carousel-thumbnail-width);
+  padding: .5rem;
+  margin: calc(var(--#{$prefix}carousel-thumbnail-spacer) * .5) !important; // stylelint-disable-line declaration-no-important
+  border: var(--#{$prefix}carousel-thumbnail-border-width) solid var(--#{$prefix}carousel-thumbnail-border-color);
+  @include border-radius(var(--#{$prefix}carousel-thumbnail-border-radius));
+
+  &:last-child {
+    margin-right: 0 !important; // stylelint-disable-line declaration-no-important
+  }
+
+  > img {
+    @include border-radius(calc(var(--#{$prefix}carousel-thumbnail-border-radius) - .25rem));
+    opacity: var(--#{$prefix}carousel-thumbnail-opacity);
+    transition: opacity .25s ease-in-out;
+  }
+
+  &:hover > img {
+    opacity: var(--#{$prefix}carousel-thumbnail-hover-opacity);
+  }
+
+  &.active {
+    border-color: var(--#{$prefix}carousel-thumbnail-active-border-color);
+
+    > img {
+      opacity: var(--#{$prefix}carousel-thumbnail-active-opacity);
+    }
+  }
+}
+
+.swiper-thumbnails-circle .swiper-thumbnail,
+.swiper-thumbnails-circle .swiper-thumbnail > img {
+  border-radius: 50%;
+}
+
+
+// Progress bar
+
+.swiper-pagination-progressbar {
+  background-color: var(--#{$prefix}carousel-pagination-progressbar-bg);
+
+  .swiper-pagination-progressbar-fill {
+    background-color: var(--#{$prefix}carousel-pagination-progressbar-fill-bg);
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  height: var(--#{$prefix}carousel-pagination-progressbar-height);
+}
+
+.swiper-vertical > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-vertical {
+  width: var(--#{$prefix}carousel-pagination-progressbar-height);
+}
+
+
+// Scrollbar
+
+.swiper-scrollbar {
+  --#{$prefix}carousel-scrollbar-width: #{$carousel-scrollbar-width};
+  --#{$prefix}carousel-scrollbar-bg: #{$carousel-scrollbar-bg};
+  --#{$prefix}carousel-scrollbar-drag-width: #{$carousel-scrollbar-drag-width};
+  --#{$prefix}carousel-scrollbar-drag-bg: #{$carousel-scrollbar-drag-bg};
+
+  background-color: var(--#{$prefix}carousel-scrollbar-bg);
+}
+
+.swiper-scrollbar-drag {
+  background-color: $carousel-scrollbar-drag-bg;
+}
+
+.swiper-vertical > .swiper-scrollbar {
+  right: .25rem;
+  width: var(--#{$prefix}carousel-scrollbar-width);
+
+  .swiper-scrollbar-drag {
+    left: 50%;
+    width: var(--#{$prefix}carousel-scrollbar-drag-width);
+    margin-left: calc(var(--#{$prefix}carousel-scrollbar-drag-width) * -.5);
+  }
+}
+
+.swiper-horizontal > .swiper-scrollbar {
+  bottom: .25rem;
+  height: var(--#{$prefix}carousel-scrollbar-width);
+
+  .swiper-scrollbar-drag {
+    top: 50%;
+    height: var(--#{$prefix}carousel-scrollbar-drag-width);
+    margin-top: calc(var(--#{$prefix}carousel-scrollbar-drag-width) * -.5);
+  }
+}
+
+
+// Layer animations
+
+.from-top,
+.from-bottom,
+.from-start,
+.from-end,
+.scale-up,
+.scale-down {
+  opacity: 0;
+  backface-visibility: hidden;
+  transition: all .4s .4s ease-in-out;
+}
+.from-top {
+  transform: translateY(-2.25rem);
+}
+.from-bottom {
+  transform: translateY(2.25rem);
+}
+.from-start {
+  transform: translateX(-2.25rem);
+}
+.from-end {
+  transform: translateX(2.25rem);
+}
+.scale-up {
+  transform: scale(.85);
+}
+
+.swiper-slide-active,
+.active {
+  .from-top,
+  .from-bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .from-start,
+  .from-end {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .scale-up,
+  .scale-down {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+// Swiper scale effect
+
+.swiper-slide-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+}
+.swiper-scale-effect .swiper-slide-cover {
+  transition: 8.5s ease-out;
+  transform: scale(1.1);
+}
+
+.swiper-scale-effect .swiper-slide.swiper-slide-active .swiper-slide-cover {
+  transform: scale(1);
+}

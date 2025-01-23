@@ -1,7 +1,870 @@
 {% extends "main/base.html" %}
-
-{% block title %}RSE Competencies Toolkit{% endblock title %}
-
+{% load static %}
+{% load django_bootstrap5 %}
+{% block title %}
+    RSE Competencies Toolkit
+{% endblock title %}
 {% block content %}
-Welcome to the index page for the RSE Competencies Toolkit!
+    <!-- Hero -->
+    {% include "main/snippets/hero.html" %}
+    <!-- Features grid -->
+    <section class="container pt-5 mt-lg-3 mt-xl-4 mt-xxl-5">
+        <div class="row pt-2 pt-md-4 pt-lg-3 pt-xl-4 g-4 g-sm-3 g-md-4">
+            <div class="col-lg-8 order-lg-2">
+                <div class="d-md-flex h-100 bg-primary rounded-5 overflow-hidden px-4 px-sm-5 pt-5">
+                    <div class="d-md-flex px-2 px-sm-0 px-xl-2 px-xxl-4 pt-xl-3">
+                        <div class="text-center text-md-start pe-md-5 pb-3 pb-md-0 me-xxl-3 mb-4 md-0">
+                            <h2 class="h1 text-white pb-2 pb-md-3 mb-lg-4">How Does It Work?</h2>
+                            <a class="btn btn-icon btn-xl btn-warning rounded-circle"
+                               href="https://www.youtube.com/watch?v=j5Rb-OkP-Go"
+                               data-bs-toggle="video"
+                               aria-label="Play video">
+                                <i class="ai-play-filled"></i>
+                            </a>
+                        </div>
+                        <div class="w-100 flex-md-shrink-0 mx-auto" style="max-width: 472px;">
+                            <img class="d-dark-mode-none"
+                                 src="{% static 'assets/img/landing/saas-1/features/01-light.png' %}"
+                                 alt="Image">
+                            <img class="d-none d-dark-mode-block"
+                                 src="{% static 'assets/img/landing/saas-1/features/01-dark.png' %}"
+                                 alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 order-lg-1">
+                <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
+                    <div class="card-body">
+                        <h3>Target your audience effectively</h3>
+                        <p class="mb-0">
+                            Nisl in enim, gravida risus enim risus non et in iaculis non facilisis eget blandit id vulputate morbi proin vitae tincidunt vestibulum viverra. Quis odio mauris velit egestas risus vulputate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 order-lg-3">
+                <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
+                    <div class="card-body">
+                        <h3>Build dashboard in minutes</h3>
+                        <p class="mb-0">
+                            Facilisi eu neque amet, orci tellus nibh amet tincidunt nunc, feugiat arcu vulputate duis. Quis odio mauris, in sed pharetra velit egestas risus purus tincidunt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 order-lg-4">
+                <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
+                    <div class="card-body">
+                        <h3>Easily download your tables and data</h3>
+                        <p class="mb-0">
+                            Cursus dolor sagittis, nisi sit pharetra pharetra ornare nec diam id in in commodo mattis at retium at id nisi ullamcorper tortor augue parturient at tellus lorem enim.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 order-lg-5">
+                <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
+                    <div class="card-body">
+                        <h3>Access to dashboard from all devices</h3>
+                        <p class="mb-0">
+                            Ac pharetra pharetra morbi turpis auctor vel eget amet nulla diam facilisis sit morbi sit aliquam in amet ultrices aliquet leo facilisis  lorem proin pharetra ornare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features list -->
+    <section class="container pt-5 pb-4 mb-2 my-lg-3 my-xl-4 my-xxl-5">
+        <div class="row justify-content-center pt-2 pt-sm-3 pt-md-4 mt-lg-2 pb-lg-2 pb-xl-0">
+            <div class="col-sm-11 col-md-9 col-lg-8 col-xl-7 col-xxl-6 text-center">
+                <h2 class="h1 mb-0">Powerful and highly customizable data analysis tool</h2>
+            </div>
+        </div>
+        <!-- Item -->
+        <div class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-offset="300"
+             data-disable-parallax-down="md">
+            <div class="col-md-6 pt-xl-2 offset-xl-1 order-md-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0">
+                <img class="d-dark-mode-none"
+                     src="{% static 'assets/img/landing/saas-1/features/02-light.png' %}"
+                     width="636"
+                     alt="Image">
+                <img class="d-none d-dark-mode-block"
+                     src="{% static 'assets/img/landing/saas-1/features/02-dark.png' %}"
+                     width="636"
+                     alt="Image">
+            </div>
+            <div class="col-md-6 col-xl-5 order-md-1 pt-xl-2"
+                 data-aos="fade-up"
+                 data-aos-duration="850"
+                 data-aos-offset="200"
+                 data-disable-parallax-down="md">
+                <div class="pe-md-3 pe-xl-0">
+                    <span class="badge bg-primary bg-opacity-10 text-primary fs-sm mb-3 mb-lg-4">Team activities</span>
+                    <h3 class="h2 mb-lg-4">Key performance indicators of marketing activities</h3>
+                    <p class="mb-0">
+                        Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus laoreet sem adipiscing sollicitudin erat massa tellus lorem enim aenean phasellus in hendrerit interdum lorem proin pretium dictum urna suspendisse quis risus et.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Item -->
+        <div class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-offset="300"
+             data-disable-parallax-down="md">
+            <div class="col-md-6 pt-xl-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0">
+                <img class="d-dark-mode-none"
+                     src="{% static 'assets/img/landing/saas-1/features/03-light.png' %}"
+                     width="636"
+                     alt="Image">
+                <img class="d-none d-dark-mode-block"
+                     src="{% static 'assets/img/landing/saas-1/features/03-dark.png' %}"
+                     width="636"
+                     alt="Image">
+            </div>
+            <div class="col-md-6 col-xl-5 offset-xl-1 pt-xl-2"
+                 data-aos="fade-up"
+                 data-aos-duration="850"
+                 data-aos-offset="200"
+                 data-disable-parallax-down="md">
+                <div class="ps-md-3 ps-xl-0">
+                    <span class="badge bg-primary bg-opacity-10 text-primary fs-sm mb-3 mb-lg-4">Team activities</span>
+                    <h3 class="h2 mb-lg-4">Key performance indicators of marketing activities</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex pt-1 mt-2">
+                            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                            Segmenting the audience is easy and simple
+                        </li>
+                        <li class="d-flex pt-1 mt-2">
+                            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                            Functional dashboard for managing your data
+                        </li>
+                        <li class="d-flex pt-1 mt-2">
+                            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                            Key performance indicators of team interaction
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Item -->
+        <div class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-offset="300"
+             data-disable-parallax-down="md">
+            <div class="col-md-6 offset-xl-1 order-md-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0">
+                <img class="d-dark-mode-none"
+                     src="{% static 'assets/img/landing/saas-1/features/04-light.png' %}"
+                     width="636"
+                     alt="Image">
+                <img class="d-none d-dark-mode-block"
+                     src="{% static 'assets/img/landing/saas-1/features/04-dark.png' %}"
+                     width="636"
+                     alt="Image">
+            </div>
+            <div class="col-md-6 col-xl-5 order-md-1"
+                 data-aos="fade-up"
+                 data-aos-duration="850"
+                 data-aos-offset="200"
+                 data-disable-parallax-down="md">
+                <div class="pe-md-3 pe-xl-0">
+                    <span class="badge bg-primary bg-opacity-10 text-primary fs-sm mb-3 mb-lg-4">Segmentation</span>
+                    <h3 class="h2 mb-lg-4">Segmentation of the audience using different methods</h3>
+                    <p class="mb-0">
+                        Facilisi eu neque amet, orci tellus nibh amet tincidunt nunc, feugiat arcu vulputate duis. Quis odio mauris, in sed pharetra velit egestas risus purus tincidunt. Nisl in enim, gravida risus enim risus non et in iaculis non facilisis eget blandit id vulputate.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Industries -->
+    <section class="bg-dark border-top border-light py-2 py-sm-3 py-md-4 py-lg-5"
+             data-bs-theme="dark">
+        <div class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
+            <h2 class="h1 text-center text-md-start mt-lg-n3 pb-4 pb-md-5"
+                style="max-width: 660px">Around suitable for any business, from stores to agencies</h2>
+            <div class="row pt-sm-2 pt-md-0 pt-xl-1 pt-xxl-3">
+                <div class="col-md-6 col-xl-5 offset-xl-1 order-md-2 pb-4 pb-md-0 mb-2 mb-md-0">
+                    <!-- Images (binded content) -->
+                    <div class="binded-content" style="max-width: 526px;">
+                        <div class="binded-item active" id="marketers-image">
+                            <div class="from-bottom">
+                                <div class="d-flex justify-content-center position-absolute top-0 start-0 w-100 h-100">
+                                    <div class="bg-primary rounded-5 h-100" style="width: 88.2%;"></div>
+                                </div>
+                                <img class="d-block position-relative z-2"
+                                     src="{% static 'assets/img/landing/saas-1/industries/01.png' %}"
+                                     alt="Image">
+                            </div>
+                        </div>
+                        <div class="binded-item" id="agencies-image">
+                            <div class="from-bottom">
+                                <div class="d-flex justify-content-center position-absolute top-0 start-0 w-100 h-100">
+                                    <div class="bg-info rounded-5 h-100" style="width: 88.2%;"></div>
+                                </div>
+                                <img class="d-block position-relative z-2"
+                                     src="{% static 'assets/img/landing/saas-1/industries/02.png' %}"
+                                     alt="Image">
+                            </div>
+                        </div>
+                        <div class="binded-item" id="ecommerce-image">
+                            <div class="from-bottom">
+                                <div class="d-flex justify-content-center position-absolute top-0 start-0 w-100 h-100">
+                                    <div class="bg-warning rounded-5 h-100" style="width: 88.2%;"></div>
+                                </div>
+                                <img class="d-block position-relative z-2"
+                                     src="{% static 'assets/img/landing/saas-1/industries/03.png' %}"
+                                     alt="Image">
+                            </div>
+                        </div>
+                        <div class="binded-item" id="startups-image">
+                            <div class="from-bottom">
+                                <div class="d-flex justify-content-center position-absolute top-0 start-0 w-100 h-100">
+                                    <div class="bg-danger rounded-5 h-100" style="width: 88.2%;"></div>
+                                </div>
+                                <img class="d-block position-relative z-2"
+                                     src="{% static 'assets/img/landing/saas-1/industries/04.png' %}"
+                                     alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs flex-nowrap overflow-auto text-nowrap pb-3 mb-3 mb-xl-4"
+                        role="tablist">
+                        <li class="nav-item mb-0">
+                            <a class="nav-link active"
+                               href="#marketers-text"
+                               data-bs-toggle="tab"
+                               data-binded-content="#marketers-image"
+                               role="tab">Marketers</a>
+                        </li>
+                        <li class="nav-item mb-0">
+                            <a class="nav-link"
+                               href="#agencies-text"
+                               data-bs-toggle="tab"
+                               data-binded-content="#agencies-image"
+                               role="tab">Agencies</a>
+                        </li>
+                        <li class="nav-item mb-0">
+                            <a class="nav-link"
+                               href="#ecommerce-text"
+                               data-bs-toggle="tab"
+                               data-binded-content="#ecommerce-image"
+                               role="tab">E-Commerce</a>
+                        </li>
+                        <li class="nav-item mb-0">
+                            <a class="nav-link"
+                               href="#startups-text"
+                               data-bs-toggle="tab"
+                               data-binded-content="#startups-image"
+                               role="tab">Startups</a>
+                        </li>
+                    </ul>
+                    <!-- Tab content -->
+                    <div class="tab-content pt-lg-2 pt-xl-3">
+                        <div class="tab-pane fade show active" id="marketers-text" role="tabpanel">
+                            <h3 class="mb-lg-4">Track user journey from first interaction to conversion</h3>
+                            <p class="text-body">
+                                Porttitor in mauris tellus ipsum commodo praesent nunc vel integer mi at tristique id faucibus pretium vestibulum massa nisl at massa sagittis congue ac uismod tortor dictum enim tincidunt gravida odio. Auctor arcu ante malesuada pharetra gravida nunc euismod egestas quam dolor ut vel venenatis quis egestas orci.
+                            </p>
+                            <a class="btn btn-lg btn-link px-0 mt-n2 mt-lg-0" href="#">
+                                Learn more
+                                <i class="ai-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                        <div class="tab-pane fade" id="agencies-text" role="tabpanel">
+                            <h3 class="mb-lg-4">Analyze your marketing activities quickly and efficiently</h3>
+                            <p class="text-body">
+                                Phasellus sed orci, praesent sed integer egestas imperdiet morbi vitae vel diam risus in sed elit semper est malesuada venenatis egestas diam consequat sit scelerisque integer sit nisl nunc.
+                            </p>
+                            <a class="btn btn-lg btn-link px-0 mt-n2 mt-lg-0" href="#">
+                                Learn more
+                                <i class="ai-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                        <div class="tab-pane fade" id="ecommerce-text" role="tabpanel">
+                            <h3 class="mb-lg-4">Track the user's path to the order on all product interaction paths</h3>
+                            <p class="text-body">
+                                Sollicitudin et donec tincidunt arcu cras felis ipsum dolor sollicitudin. Nec purus, lobortis tristique pellentesque venenatis. Various nulla quis morbi lectus sit dui viverra mi. Amet in diam vitae non at euismod massa orci at dis libero facilisi lacus morbi. Magna vitae ac condimentum enim vitae cras egestas elementum.
+                            </p>
+                            <a class="btn btn-lg btn-link px-0 mt-n2 mt-lg-0" href="#">
+                                Learn more
+                                <i class="ai-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                        <div class="tab-pane fade" id="startups-text" role="tabpanel">
+                            <h3 class="mb-lg-4">Track fast growth with important data</h3>
+                            <p class="text-body">
+                                Porttitor in mauris tellus ipsum commodo praesent nunc vel integer mi at tristique id faucibus pretium vestibulum massa nisl at massa sagittis congue ac uismod tortor dictum enim tincidunt gravida odio. Auctor arcu ante malesuada pharetra gravida nunc euismod egestas quam dolor ut vel venenatis quis egestas orci.
+                            </p>
+                            <a class="btn btn-lg btn-link px-0 mt-n2 mt-lg-0" href="#">
+                                Learn more
+                                <i class="ai-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing -->
+    <section class="bg-secondary pt-2 py-sm-3 py-md-4 py-lg-5">
+        <div class="container py-5 mt-lg-3 mt-xl-4 mt-xxl-5 mb-lg-2 mb-xl-4">
+            <h2 class="h1 text-center mt-lg-n3 mb-2 mb-sm-0">Pricing</h2>
+            <div class="price-switch-wrapper mt-sm-n4">
+                <div class="text-center py-3 mb-3" data-bs-toggle="price">
+                    <div class="form-check form-check-inline pe-4">
+                        <input class="form-check-input"
+                               type="radio"
+                               id="monthly"
+                               name="price"
+                               data-monthly-switch
+                               checked>
+                        <label class="form-check-label text-dark fs-base fw-medium" for="monthly">Monthly payment</label>
+                    </div>
+                    <div class="form-check d-inline-flex align-items-end me-sm-n5">
+                        <div class="d-inline-flex">
+                            <input class="form-check-input me-2"
+                                   type="radio"
+                                   id="annual"
+                                   name="price"
+                                   data-annual-switch>
+                            <label class="form-check-label text-dark fs-base fw-medium" for="annual">Annual payment</label>
+                        </div>
+                        <div class="d-inline-block text-center ps-3 ms-sm-4">
+                            <div class="text-danger fs-sm fw-bold mb-sm-1">Save 20%</div>
+                            <svg class="text-danger ms-n4 d-none d-sm-block"
+                                 width="52"
+                                 height="38"
+                                 viewBox="0 0 52 38"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50.5002 1C50.3336 5.33333 48.5 13 44.0002 20.5C39.5005 28 29.0002 32.5 28.5002 23C28.0002 13.5 39.5002 7 36.5002 14.5C33.5002 22 18.5 35.5 4 30" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                                </path>
+                                <path d="M3.83039 29.8565C6.35946 29.7566 8.93618 29.122 11.2178 28.1747L11.2178 28.1748L11.2196 28.1739C11.5476 28.0299 11.7182 27.6503 11.5867 27.3359C11.448 26.9871 11.0624 26.8028 10.7213 26.9517C7.91141 28.0931 4.64686 28.7829 1.62704 28.4553L1.62706 28.4551L1.62094 28.4549C1.27015 28.4384 0.944127 28.6914 0.902297 29.0451L0.902167 29.045L0.901827 29.0501C0.896722 29.1266 0.902407 29.2007 0.917743 29.2707C0.94057 29.4967 1.07932 29.7124 1.30195 29.8067C4.07984 31.0931 5.87728 34.0754 7.0096 36.882L7.00959 36.882L7.01015 36.8833C7.13957 37.1912 7.5283 37.3687 7.86577 37.2206L7.86579 37.2205C8.19919 37.0741 8.36065 36.6916 8.22031 36.3385L8.22006 36.3379C7.2736 34.0027 5.84935 31.53 3.83039 29.8565Z" fill="currentColor" stroke="currentColor" stroke-width="0.2">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-3 flex-nowrap overflow-auto pb-4">
+                    <!-- Plan -->
+                    <div class="col" style="min-width: 19rem;">
+                        <div class="card border-0 h-100 py-lg-3">
+                            <div class="card-body w-100 mx-auto" style="max-width: 21rem;">
+                                <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+                                    <div class="bg-info rounded flex-shrink-0 p-2">
+                                        <img class="d-block m-1"
+                                             src="{% static 'assets/img/landing/saas-1/pricing/starter.svg' %}"
+                                             width="44"
+                                             alt="Icon">
+                                    </div>
+                                    <div class="ps-3">
+                                        <h3 class="h4 text-info mb-0">Starter</h3>
+                                        <div class="d-flex align-items-end">
+                                            <span class="h5 mb-1 me-1">$</span>
+                                            <span class="h2 mb-0" data-monthly-price>15.00</span>
+                                            <span class="h2 mb-0 d-none" data-annual-price>12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled mb-1 pb-4">
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        In lorem eget amet sit
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Sodales sit velit ornare
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Tristique suspendisse proin
+                                    </li>
+                                    <li class="d-flex text-body-secondary pb-1 mb-2">
+                                        <i class="ai-cross lead opacity-80 me-2"></i>
+                                        Nunc nullam in dignissim
+                                    </li>
+                                    <li class="d-flex text-body-secondary pb-1 mb-2">
+                                        <i class="ai-cross lead opacity-80 me-2"></i>
+                                        Imperdiet amet suspendisse
+                                    </li>
+                                    <li class="d-flex text-body-secondary pb-1 mb-2">
+                                        <i class="ai-cross lead opacity-80 me-2"></i>
+                                        Tristique nibh erat et quis
+                                    </li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100" type="button">Get this plan now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Plan -->
+                    <div class="col" style="min-width: 19rem;">
+                        <div class="card border-primary h-100 py-lg-3">
+                            <div class="card-body w-100 mx-auto" style="max-width: 21rem;">
+                                <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+                                    <div class="bg-primary rounded flex-shrink-0 p-2">
+                                        <img class="d-block m-1"
+                                             src="{% static 'assets/img/landing/saas-1/pricing/business.svg' %}"
+                                             width="44"
+                                             alt="Icon">
+                                    </div>
+                                    <div class="ps-3">
+                                        <h3 class="h4 text-primary mb-0">Business</h3>
+                                        <div class="d-flex align-items-end">
+                                            <span class="h5 mb-1 me-1">$</span>
+                                            <span class="h2 mb-0" data-monthly-price>35.00</span>
+                                            <span class="h2 mb-0 d-none" data-annual-price>28.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled mb-1 pb-4">
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        In lorem eget amet sit
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Sodales sit velit ornare
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Tristique suspendisse proin
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Nunc nullam in dignissim
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Imperdiet amet suspendisse
+                                    </li>
+                                    <li class="d-flex text-body-secondary pb-1 mb-2">
+                                        <i class="ai-cross lead opacity-80 me-2"></i>
+                                        Tristique nibh erat et quis
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary w-100" type="button">Get this plan now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Plan -->
+                    <div class="col" style="min-width: 19rem;">
+                        <div class="card border-0 h-100 py-lg-3">
+                            <div class="card-body w-100 mx-auto" style="max-width: 21rem;">
+                                <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+                                    <div class="bg-warning rounded flex-shrink-0 p-2">
+                                        <img class="d-block m-1"
+                                             src="{% static 'assets/img/landing/saas-1/pricing/premium.svg' %}"
+                                             width="44"
+                                             alt="Icon">
+                                    </div>
+                                    <div class="ps-3">
+                                        <h3 class="h4 text-warning mb-0">Premium</h3>
+                                        <div class="d-flex align-items-end">
+                                            <span class="h5 mb-1 me-1">$</span>
+                                            <span class="h2 mb-0" data-monthly-price>50.00</span>
+                                            <span class="h2 mb-0 d-none" data-annual-price>40.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled mb-1 pb-4">
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        In lorem eget amet sit
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Sodales sit velit ornare
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Tristique suspendisse proin
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Nunc nullam in dignissim
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Imperdiet amet suspendisse
+                                    </li>
+                                    <li class="d-flex pb-1 mb-2">
+                                        <i class="ai-check fs-xl mt-1 me-2"></i>
+                                        Tristique nibh erat et quis
+                                    </li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100" type="button">Get this plan now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="container pt-2 pt-sm-3 pt-md-4 pt-lg-5">
+        <h2 class="text-center pt-5 pb-3 mb-lg-4 mt-lg-3 mt-xl-4 mt-xxl-5">
+            More than 2,000 clients using Around to analyze data
+        </h2>
+        <!-- Nav tabs -->
+        <div class="overflow-auto pb-3 pb-xl-4 mb-3 mb-lg-4">
+            <ul class="nav nav-tabs justify-content-between flex-nowrap text-nowrap p-0 m-0"
+                role="tablist"
+                style="min-width: 1000px">
+                <li class="nav-item mb-0">
+                    <a class="nav-link active"
+                       href="#foster"
+                       data-bs-toggle="tab"
+                       role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/foster-color.svg' %}"
+                                 width="140"
+                                 alt="Foster">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/foster-gray.svg' %}"
+                                     width="140"
+                                     alt="Foster">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/foster-light.svg' %}"
+                                     width="140"
+                                     alt="Foster">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item mb-0">
+                    <a class="nav-link" href="#klinos" data-bs-toggle="tab" role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/klinos-color.svg' %}"
+                                 width="131"
+                                 alt="Klinos">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/klinos-gray.svg' %}"
+                                     width="131"
+                                     alt="Klinos">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/klinos-light.svg' %}"
+                                     width="131"
+                                     alt="Klinos">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item mb-0">
+                    <a class="nav-link" href="#champion" data-bs-toggle="tab" role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/champion-color.svg' %}"
+                                 width="162"
+                                 alt="Champion">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/champion-gray.svg' %}"
+                                     width="162"
+                                     alt="Champion">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/champion-light.svg' %}"
+                                     width="162"
+                                     alt="Champion">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item mb-0">
+                    <a class="nav-link" href="#airbnb" data-bs-toggle="tab" role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/airbnb-color.svg' %}"
+                                 width="132"
+                                 alt="Airbnb">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/airbnb-gray.svg' %}"
+                                     width="132"
+                                     alt="Airbnb">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/airbnb-light.svg' %}"
+                                     width="132"
+                                     alt="Airbnb">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item mb-0">
+                    <a class="nav-link" href="#starcraft" data-bs-toggle="tab" role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/starcraft-color.svg' %}"
+                                 width="158"
+                                 alt="StarCraft">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/starcraft-gray.svg' %}"
+                                     width="158"
+                                     alt="StarCraft">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/starcraft-light.svg' %}"
+                                     width="158"
+                                     alt="StarCraft">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item mb-0">
+                    <a class="nav-link" href="#alpine" data-bs-toggle="tab" role="tab">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'assets/img/landing/saas-1/brands/alpine-color.svg' %}"
+                                 width="146"
+                                 alt="Alpine">
+                            <div class="swap-from">
+                                <img class="d-dark-mode-none"
+                                     src="{% static 'assets/img/landing/saas-1/brands/alpine-gray.svg' %}"
+                                     width="146"
+                                     alt="Alpine">
+                                <img class="d-none d-dark-mode-block"
+                                     src="{% static 'assets/img/landing/saas-1/brands/alpine-light.svg' %}"
+                                     width="146"
+                                     alt="Alpine">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Tabs content -->
+        <div class="card border-0 bg-secondary">
+            <div class="tab-content card-body px-lg-0 py-lg-5">
+                <!-- Testimonial (active tab) -->
+                <div class="tab-pane fade show active" id="foster" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/13.jpg' %}"
+                                 width="86"
+                                 alt="Lilianna Bocouse">
+                            <h4 class="mb-0">Lilianna Bocouse</h4>
+                            <p class="fs-lg text-body-secondary mb-0">Head of Marketing</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Around provides us with the detailed and accurate data we need to make strategic decisions. All tools are constantly being improved and contain a lot of useful and interesting information. Thanks to Around, we can constantly analyze our big data quickly and efficiently.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial (tab) -->
+                <div class="tab-pane fade" id="klinos" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/14.jpg' %}"
+                                 width="86"
+                                 alt="Darell Steward">
+                            <h4 class="mb-0">Darell Steward</h4>
+                            <p class="fs-lg text-body-secondary mb-0">Project Manager</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac pretium dui. Aliquam rutrum justo lorem, in efficitur odio efficitur vel. Integer mattis, neque malesuada sagittis porttitor, enim tortor ullamcorper diam, id eleifend sem mauris at turpis. Curabitur sed nisi nec ligula dictum maximus eu ut ante.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial (tab) -->
+                <div class="tab-pane fade" id="champion" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/15.jpg' %}"
+                                 width="86"
+                                 alt="Annette Black">
+                            <h4 class="mb-0">Annette Black</h4>
+                            <p class="fs-lg text-body-secondary mb-0">Lead Designer</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Quisque rutrum sit amet magna sit amet tristique. Vivamus rhoncus ac purus vitae convallis. Aliquam erat volutpat. Proin egestas, mauris ut semper semper, ipsum felis mattis ligula, et porttitor ante arcu nec ante. Aliquam congue est eu turpis sollicitudin, et ullamcorper tortor aliquam.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial (tab) -->
+                <div class="tab-pane fade" id="airbnb" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/16.jpg' %}"
+                                 width="86"
+                                 alt="Ralph Edwards">
+                            <h4 class="mb-0">Ralph Edwards</h4>
+                            <p class="fs-lg text-body-secondary mb-0">CEO, Co-Founder</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Vestibulum faucibus lectus eget augue pharetra, quis semper lectus gravida. Vestibulum pretium in elit sed iaculis. Curabitur elementum turpis at ipsum molestie, id maximus odio tincidunt. Praesent id lacinia orci. Phasellus at various arcu. Ut nec lobortis velit. Mauris vel risus quis lacus placerat fringilla.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial (tab) -->
+                <div class="tab-pane fade" id="starcraft" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/17.jpg' %}"
+                                 width="86"
+                                 alt="Jane Cooper">
+                            <h4 class="mb-0">Jane Cooper</h4>
+                            <p class="fs-lg text-body-secondary mb-0">Strategic Advisor</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Morbi at fermentum enim, pulvinar malesuada quam. Morbi sit amet tellus luctus, vulputate arcu nec, consectetur diam. Proin est lacus, interdum ac aliquam sit amet, aliquam eget leo. Donec condimentum erat quam, tincidunt tempus augue consectetur a. Donec quis purus dictum, iaculis mi fringilla.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial (tab) -->
+                <div class="tab-pane fade" id="alpine" role="tabpanel">
+                    <div class="row py-2 py-sm-1 py-md-3 py-lg-4 py-xl-5">
+                        <div class="col-md-4 col-lg-3 offset-lg-1 mb-3 mb-md-0">
+                            <img class="d-block rounded-circle mb-3"
+                                 src="{% static 'assets/img/avatar/18.jpg' %}"
+                                 width="86"
+                                 alt="Albert Flores">
+                            <h4 class="mb-0">Albert Flores</h4>
+                            <p class="fs-lg text-body-secondary mb-0">Business Analyst</p>
+                        </div>
+                        <div class="col-md-8 col-lg-7">
+                            <p class="text-dark lead mb-0">
+                                “Phasellus at various arcu. Ut nec lobortis velit. Mauris vel risus quis lacus placerat fringilla. Aliquam congue risus tortor, sed posuere leo faucibus sed. Orci various natoque penatibus et magnis dis parturient montes, nascetur ridiculous mus. Ut dui ante, rutrum eget vehicula sed.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Mobile app CTA -->
+    <section class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
+        <div class="row align-items-center justify-content-center py-2 py-sm-3 py-md-4 my-xl-2"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-offset="300"
+             data-disable-parallax-down="md">
+            <div class="col-6 col-sm-5 col-md-4 offset-md-1 order-sm-2 pb-4 pb-sm-0 mb-2 mb-sm-0">
+                <img class="d-dark-mode-none"
+                     src="{% static 'assets/img/landing/saas-1/cta/device-light.png' %}"
+                     width="414"
+                     alt="Mobile screen">
+                <img class="d-none d-dark-mode-block"
+                     src="{% static 'assets/img/landing/saas-1/cta/device-dark.png' %}"
+                     width="414"
+                     alt="Mobile screen">
+            </div>
+            <div class="col-sm-7 col-md-6 col-xl-5 offset-xl-1 order-sm-1"
+                 data-aos="fade-up"
+                 data-aos-duration="850"
+                 data-aos-offset="200"
+                 data-disable-parallax-down="md">
+                <div class="pe-sm-3 pe-md-0">
+                    <h2 class="h1 pb-1 pb-sm-2 pb-lg-3">Download Around app for any devices</h2>
+                    <p class="mb-0">
+                        Now there is a mobile application so that you can always quickly and conveniently track your data morbi et massa fames ac scelerisque sit commodo dignissim.
+                    </p>
+                    <div class="d-flex justify-content-between pt-4 pt-lg-5 mt-sm-2"
+                         style="max-width: 450px">
+                        <div class="pe-2">
+                            <h3 class="h4 mb-2">Editor's choice</h3>
+                            <p class="mb-sm-4">rating 4.7, 187K+ reviews</p>
+                            <a class="btn btn-primary btn-lg px-3 py-2" href="#">
+                                <img class="mx-1"
+                                     src="{% static 'assets/img/market/appstore-light.svg' %}"
+                                     width="136"
+                                     alt="App Store">
+                            </a>
+                        </div>
+                        <div class="ps-2">
+                            <h3 class="h4 mb-2">App of the day</h3>
+                            <p class="mb-sm-4">rating 4.8, 30K+ reviews</p>
+                            <a class="btn btn-primary btn-lg px-3 py-2" href="#">
+                                <img class="mx-1"
+                                     src="{% static 'assets/img/market/googleplay-light.svg' %}"
+                                     width="135"
+                                     alt="Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="container">
+        <div class="bg-dark rounded-5 position-relative overflow-hidden py-5 px-4 px-sm-5">
+            <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100"
+                 style="background-color: rgba(255,255,255, .02)"></div>
+            <svg class="position-absolute start-0 bottom-0 z-2"
+                 width="713"
+                 height="410"
+                 viewBox="0 0 713 410"
+                 fill="none"
+                 stroke="white"
+                 stroke-opacity="0.12"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M682.907 484.533C695.503 444.57 705.228 400.872 691.238 361.386C672.894 309.65 617.745 278.967 563.532 270.375C509.32 261.768 454.065 270.505 399.207 272.603C344.348 274.702 285.906 268.882 241.992 235.917C181.111 190.21 163.777 104.969 109.285 51.7863C63.8512 7.45308 -6.63234 -9.27787 -67.1491 9.9424">
+                </path>
+                <path d="M641.482 482.967C653.4 445.169 662.6 403.82 649.367 366.472C632.013 317.53 579.846 288.506 528.564 280.379C477.267 272.236 425.011 280.507 373.121 282.492C321.231 284.477 265.935 278.97 224.403 247.786C166.796 204.54 150.415 123.91 98.8593 73.6098C55.8807 31.6733 -10.8023 15.8433 -68.0415 34.0275">
+                </path>
+                <path d="M600.052 481.4C611.277 445.751 619.968 406.784 607.477 371.559C591.113 325.409 541.928 298.044 493.561 290.383C445.194 282.705 395.92 290.508 346.984 292.363C298.047 294.234 245.913 289.041 206.762 259.639C152.445 218.868 137.002 142.834 88.3989 95.4004C47.876 55.8447 -14.9912 40.9323 -68.9688 58.0798">
+                </path>
+                <path d="M558.622 479.833C569.168 446.349 577.336 409.73 565.601 376.644C550.227 333.287 504.025 307.582 458.589 300.385C413.153 293.173 366.862 300.493 320.893 302.251C274.925 304.009 225.953 299.128 189.168 271.507C138.142 233.198 123.636 161.774 77.9686 117.223C39.9006 80.0639 -19.166 66.0526 -69.8661 82.164">
+                </path>
+                <path d="M517.195 478.267C527.064 446.932 534.691 412.678 523.729 381.732C509.361 341.167 466.125 317.121 423.62 310.39C381.115 303.643 337.806 310.496 294.806 312.141C251.807 313.785 205.981 309.216 171.561 283.377C123.825 247.544 110.24 180.715 67.5263 139.03C31.9133 104.268 -23.3529 91.1578 -70.7753 106.233">
+                </path>
+            </svg>
+            <svg class="position-absolute top-0 end-0 z-2"
+                 width="317"
+                 height="367"
+                 viewBox="0 0 317 367"
+                 fill="none"
+                 stroke="white"
+                 stroke-opacity="0.12"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M766.907 366.533C779.503 326.57 789.228 282.872 775.238 243.386C756.894 191.65 701.745 160.967 647.532 152.375C593.32 143.768 538.065 152.505 483.207 154.603C428.348 156.702 369.906 150.882 325.992 117.917C265.111 72.2101 247.777 -13.031 193.285 -66.2137C147.851 -110.547 77.3677 -127.278 16.8509 -108.058">
+                </path>
+                <path d="M725.482 364.967C737.4 327.169 746.6 285.82 733.367 248.472C716.013 199.53 663.846 170.506 612.564 162.379C561.267 154.236 509.011 162.507 457.121 164.492C405.231 166.477 349.935 160.97 308.403 129.786C250.796 86.5396 234.415 5.91023 182.859 -44.3902C139.881 -86.3267 73.1977 -102.157 15.9585 -83.9725">
+                </path>
+                <path d="M684.052 363.4C695.277 327.751 703.968 288.784 691.477 253.559C675.113 207.409 625.928 180.044 577.561 172.383C529.194 164.705 479.92 172.508 430.984 174.363C382.047 176.234 329.913 171.041 290.762 141.639C236.445 100.868 221.002 24.8341 172.399 -22.5996C131.876 -62.1553 69.0088 -77.0677 15.0312 -59.9202">
+                </path>
+                <path d="M642.622 361.833C653.168 328.349 661.336 291.73 649.601 258.644C634.227 215.287 588.025 189.582 542.589 182.385C497.153 175.173 450.862 182.493 404.893 184.251C358.925 186.009 309.953 181.128 273.168 153.507C222.142 115.198 207.636 43.7743 161.969 -0.777178C123.901 -37.9361 64.834 -51.9474 14.1339 -35.836">
+                </path>
+                <path d="M601.195 360.267C611.064 328.932 618.691 294.678 607.729 263.732C593.361 223.167 550.125 199.121 507.62 192.39C465.115 185.643 421.806 192.496 378.806 194.141C335.807 195.785 289.981 191.216 255.561 165.377C207.825 129.544 194.24 62.7152 151.526 21.0304C115.913 -13.7317 60.6471 -26.8422 13.2247 -11.7668">
+                </path>
+            </svg>
+            <div class="position-relative z-3 text-center px-3 px-sm-0 pb-2 py-sm-3 py-md-4 py-lg-5"
+                 data-bs-theme="dark">
+                <h2 class="display-3 pt-xl-2">Get Started with Around</h2>
+                <p class="text-body fs-lg pb-4 pb-lg-5 mb-2 mb-sm-3 mb-lg-0 mb-xl-2">
+                    Using basic data skills you can analysis and improve your business indicators.
+                </p>
+                {% bootstrap_button button_type="link" button_class="btn-primary" size="lg" extra_classes="btn-lg mb-lg-2 mb-xl-4" content="Start free 14-day trial" %}
+            </div>
+        </div>
+    </section>
 {% endblock content %}

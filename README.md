@@ -103,3 +103,69 @@ To upgrade pinned versions, use the `--upgrade` flag with `pip-compile`.
 Versions can be restricted from updating within the `pyproject.toml` using standard python package version specifiers, i.e. `"black<23"` or `"pip-tools!=6.12.2"`
 
 [`pip-tools`]: https://pip-tools.readthedocs.io/en/latest/
+
+## Working with NPM
+
+This project includes an NPM-based setup for managing front-end assets like styles, scripts, and other resources. The `package.json` file contains predefined scripts to help with building and managing assets. You don't need to run these NPM commands if you are developing the Django app locally. You should only run these commands when needed, for example if you are changing javascript dependencies or modifying SCSS files.
+
+### Prerequisites
+
+Ensure you have Node.js (v16 or higher) and NPM installed. You can verify their installation with:
+
+```bash
+npm -v
+```
+
+### Installing Dependencies
+
+After cloning the repository, navigate to the project directory and install the required NPM dependencies:
+
+```bash
+npm install
+```
+
+### Available NPM Scripts
+
+Key commands available in the `package.json`:
+
+***Build All Assets:*** To build all styles, scripts, icon fonts, and vendor files, run:
+
+```bash
+npm build
+```
+
+***Build Expanded Styles:*** To build expanded (human-readable) css files:
+
+```bash
+npm run styles:expanded
+```
+
+***Build Minified Styles:*** To build minified (optimised for production) css files:
+
+```bash
+npm run styles:minified
+```
+
+***Build Expanded Scripts:*** To build expanded (human-readable) javascript file:
+
+```bash
+npm run scripts:expanded
+```
+
+***Build Minified Styles:*** To build minified (optimised for production) javascript file:
+
+```bash
+npm run scripts:minified
+```
+
+***Build Icon Fonts:*** Generate custom icon fonts from SVG files:
+
+```bash
+npm run icon-font
+```
+
+***Build Vendor Files:*** Bundle and optimise third-party libraries:
+
+```bash
+npm run vendor
+```

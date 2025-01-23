@@ -1,0 +1,21 @@
+//
+// Placeholders
+// --------------------------------------------------
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .placeholder {
+      opacity: $placeholder-opacity-max-dark;
+    }
+    @keyframes placeholder-glow {
+      50% {
+        opacity: $placeholder-opacity-min-dark;
+      }
+    }
+    .placeholder-wave {
+      mask-image: linear-gradient(130deg, $black 55%, rgba(0, 0, 0, (1 - $placeholder-opacity-min-dark)) 75%, $black 95%);
+    }
+  }
+}

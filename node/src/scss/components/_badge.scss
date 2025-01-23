@@ -1,0 +1,20 @@
+//
+// Badge
+// --------------------------------------------------
+
+
+// Fix secondary and light badges colors
+
+.badge.bg-secondary,
+.badge.bg-light:not(.bg-opacity-10) {
+  --#{$prefix}badge-color: var(--#{$prefix}gray-800);
+}
+.badge.bg-secondary {
+  background-color: var(--#{$prefix}secondary) !important; // stylelint-disable-line declaration-no-important
+}
+
+// Badge link
+
+a.badge { // stylelint-disable-line selector-no-qualifying-type
+  text-decoration: none;
+}

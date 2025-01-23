@@ -1,0 +1,54 @@
+// Root CSS variables
+
+:root,
+[data-bs-theme="light"] {
+
+  --#{$prefix}user-selection-color: #{$user-selection-color};
+  --#{$prefix}heading-color: #{$headings-color};
+  --#{$prefix}heading-font-weight: #{$headings-font-weight};
+  --#{$prefix}heading-link-color: #{$nav-link-color};
+  --#{$prefix}heading-link-hover-color: #{$nav-link-hover-color};
+  --#{$prefix}blockquote-color: #{$blockquote-color};
+  --#{$prefix}blockquote-font-size: #{$blockquote-font-size};
+  --#{$prefix}blockquote-footer-color: #{$blockquote-footer-color};
+  --#{$prefix}blockquote-footer-font-size: #{$blockquote-footer-font-size};
+  --#{$prefix}blockquote-mark-size: #{$blockquote-mark-size};
+  --#{$prefix}blockquote-mark-color: #{$blockquote-mark-color};
+  --#{$prefix}nav-link-color: #{$nav-link-color};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color-rgb: var(--#{$prefix}primary-rgb);
+
+  .text-dark {
+    color: var(--#{$prefix}dark) !important; // stylelint-disable-line declaration-no-important
+  }
+}
+
+
+// Dark theme overrides
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+
+    // Grayscale
+    --#{$prefix}gray-100: rgba(#{to-rgb($white)}, .03);
+    --#{$prefix}gray-200: rgba(#{to-rgb($white)}, .06);
+    --#{$prefix}gray-300: rgba(#{to-rgb($white)}, .13);
+    --#{$prefix}gray-400: rgba(#{to-rgb($white)}, .25);
+    --#{$prefix}gray-500: rgba(#{to-rgb($white)}, .4);
+    --#{$prefix}gray-600: rgba(#{to-rgb($white)}, .5);
+    --#{$prefix}gray-700: rgba(#{to-rgb($white)}, .7);
+    --#{$prefix}gray-800: rgba(#{to-rgb($white)}, .9);
+    --#{$prefix}gray-900: #{$white};
+
+    // Link color
+    --#{$prefix}link-color: var(--#{$prefix}primary);
+    --#{$prefix}link-hover-color: var(--#{$prefix}primary);
+    --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+    --#{$prefix}link-hover-color-rgb: var(--#{$prefix}primary-rgb);
+
+    // Box shadow
+    --#{$prefix}box-shadow: #{$box-shadow-dark};
+    --#{$prefix}box-shadow-sm: #{$box-shadow-sm-dark};
+    --#{$prefix}box-shadow-lg: #{$box-shadow-lg-dark};
+  }
+}

@@ -1,0 +1,182 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings line height
+
+h4,
+.h4,
+.fs-4,
+h5,
+.h5,
+.fs-5,
+h6,
+.h6,
+.fs-6 { line-height: $line-height-sm; }
+
+
+// Link inside headings
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: var(--#{$prefix}heading-font-weight);
+  > a {
+    color: var(--#{$prefix}heading-link-color);
+    text-decoration: none;
+    &:hover {
+      color: var(--#{$prefix}heading-link-hover-color);
+    }
+  }
+}
+
+
+// Blockquote
+
+.blockquote {
+  position: relative;
+  padding-left: calc(var(--#{$prefix}blockquote-mark-size) + 1.75rem);
+  color: var(--#{$prefix}blockquote-color);
+  @include font-size(var(--#{$prefix}blockquote-font-size));
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--#{$prefix}blockquote-mark-size);
+    height: var(--#{$prefix}blockquote-mark-size);
+    margin: -.1875rem -.1875rem $spacer -.1875rem;
+    line-height: 1;
+    color: var(--#{$prefix}blockquote-mark-color);
+    content: "";
+    background-color: currentcolor;
+    -webkit-mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2.667 14.667v12.4H14.8v-12.4H6.4c0-4.533 3.333-5.6 7.6-5.6v-4c-6.267 0-11.333 2.8-11.333 9.6zm25.866-5.6v-4c-6.267 0-11.333 2.8-11.333 9.733v12.4h12.133V14.667h-8.4c0-4.533 3.467-5.6 7.6-5.6z'/></svg>")) no-repeat 50% 50%; // stylelint-disable-line property-no-vendor-prefix
+    mask: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2.667 14.667v12.4H14.8v-12.4H6.4c0-4.533 3.333-5.6 7.6-5.6v-4c-6.267 0-11.333 2.8-11.333 9.6zm25.866-5.6v-4c-6.267 0-11.333 2.8-11.333 9.733v12.4h12.133V14.667h-8.4c0-4.533 3.467-5.6 7.6-5.6zv'/></svg>")) no-repeat 50% 50%;
+    -webkit-mask-size: cover; // stylelint-disable-line property-no-vendor-prefix
+    mask-size: cover;
+  }
+}
+
+.blockquote-footer {
+  display: flex;
+  margin: 0;
+  padding: {
+    top: $blockquote-margin-y * .5;
+    left: calc(var(--#{$prefix}blockquote-mark-size) + 1.75rem);
+  }
+  font-weight: $blockquote-footer-font-weight;
+  color: var(--#{$prefix}blockquote-footer-color);
+  @include font-size(var(--#{$prefix}blockquote-footer-font-size));
+  &::before {
+    display: block;
+    width: 2rem;
+    height: .0625rem;
+    margin: {
+      top: $spacer * .75;
+      right: $spacer;
+    }
+    content: "";
+    background-color: var(--#{$prefix}blockquote-footer-color);
+  }
+}
+
+.text-center {
+  .blockquote {
+    padding-left: 0;
+    &::before {
+      position: static;
+      display: block;
+      margin: {
+        right: auto;
+        left: auto;
+      }
+    }
+  }
+  .blockquote-footer {
+    justify-content: center;
+    padding-left: 0;
+    &::before { display: none; }
+  }
+}
+
+.text-end {
+  .blockquote {
+    padding: {
+      right: calc(var(--#{$prefix}blockquote-mark-size) + 1.75rem);
+      left: 0;
+    }
+    &::before {
+      right: 0;
+      left: auto;
+    }
+  }
+  .blockquote-footer {
+    justify-content: end;
+    padding: {
+      right: calc(var(--#{$prefix}blockquote-mark-size) + 1.75rem);
+      left: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .blockquote {
+    padding-left: calc((var(--#{$prefix}blockquote-mark-size) * .75) + 1rem);
+    &::before {
+      margin-bottom: $spacer * .75;
+      font-size: calc(var(--#{$prefix}blockquote-mark-size) * .75);
+    }
+  }
+  .blockquote-footer {
+    padding-left: calc((var(--#{$prefix}blockquote-mark-size) * .75) + 1rem);
+    &::before {
+      width: 1.25rem;
+      margin-right: $spacer * .75;
+    }
+  }
+  .text-end {
+    .blockquote,
+    .blockquote-footer {
+      padding-right: calc((var(--#{$prefix}blockquote-mark-size) * .75) + 1rem);
+    }
+  }
+}
+
+
+// Description lists
+
+dt {
+  font-weight: var(--#{$prefix}heading-font-weight);
+  color: var(--#{$prefix}heading-color);
+}
+
+
+// Dark mode for general type colors
+
+@if $enable-dark-mode {
+  body .dark-mode {
+    p,
+    ul,
+    ol,
+    span,
+    dd {
+      color: var(--#{$prefix}body-color);
+    }
+  }
+}
+
+
+// Del muted
+
+del.text-body-secondary { // stylelint-disable-line selector-no-qualifying-type
+  color: var(--#{$prefix}gray-500) !important; // stylelint-disable-line declaration-no-important
+}

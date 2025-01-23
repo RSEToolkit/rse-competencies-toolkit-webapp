@@ -1,0 +1,20 @@
+//
+// Placeholders
+// --------------------------------------------------
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .progress:not([data-bs-theme="light"]) {
+      background-color: $progress-bg-dark;
+    }
+    .progress-bar.bg-dark:not([data-bs-theme="light"]) {
+      color: $gray-900;
+      background-color: $light !important; // stylelint-disable-line declaration-no-important
+      &.progress-bar-striped {
+        background-image: linear-gradient(45deg, rgba($dark, .15) 25%, transparent 25%, transparent 50%, rgba($dark, .15) 50%, rgba($dark, .15) 75%, transparent 75%, transparent);
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+//
+// List group
+// --------------------------------------------------
+
+
+// Interactive list items
+
+.list-group-item-action {
+  font-weight: $list-group-action-font-weight;
+  color: var(--#{$prefix}list-group-action-color);
+  transition: $list-group-action-transition;
+  &:active {
+    transition: none;
+  }
+}
+
+
+// Flush list group
+
+.list-group-flush .list-group-item {
+  padding: {
+    right: 0;
+    left: 0;
+  }
+}

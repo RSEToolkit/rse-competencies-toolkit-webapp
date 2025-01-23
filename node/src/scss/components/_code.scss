@@ -1,0 +1,134 @@
+//
+// Code
+// --------------------------------------------------
+
+/* stylelint-disable selector-no-qualifying-type */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"],
+pre {
+  --#{$prefix}pre-padding-y: #{$pre-padding-y};
+  --#{$prefix}pre-padding-x: #{$pre-padding-x};
+  --#{$prefix}pre-border-width: #{$pre-border-width};
+  --#{$prefix}pre-border-color: #{$pre-border-color};
+  --#{$prefix}pre-bg: #{$pre-bg};
+  --#{$prefix}pre-line-numbers-border-width: #{$pre-line-numbers-border-width};
+  --#{$prefix}pre-line-numbers-border-color: #{$pre-line-numbers-border-color};
+  --#{$prefix}pre-line-numbers-color: #{$pre-line-numbers-color};
+  --#{$prefix}pre-tag-color: #47abfd;
+  --#{$prefix}pre-comment-color: rgba(#{to-rgb($white)}, .4);
+  --#{$prefix}pre-attr-name-color: #a8e1ff;
+  --#{$prefix}pre-attr-value-color: #f0c93e;
+  --#{$prefix}pre-class-name-color: #35bcba;
+
+  padding: $pre-padding-y $pre-padding-x;
+  margin: 0;
+  font-size: $code-font-size;
+  background-color: $pre-bg;
+  border: $pre-border-width solid $pre-border-color;
+  @include border-radius($pre-border-radius);
+}
+.code-toolbar {
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    padding-top: calc(var(--#{$prefix}pre-padding-y) * 1.5);
+  }
+}
+code[class*="language-"],
+pre[class*="language-"],
+pre {
+  --#{$prefix}pre-color: #{$pre-color};
+
+  color: var(--#{$prefix}pre-color);
+  text-shadow: none;
+}
+
+
+// Line numbers
+
+.line-numbers .line-numbers-rows {
+  border-right: var(--#{$prefix}pre-line-numbers-border-width) solid var(--#{$prefix}pre-line-numbers-border-color);
+  > span::before {
+    color: var(--#{$prefix}pre-line-numbers-color);
+  }
+}
+
+
+// Toolbar (Copy button)
+
+div.code-toolbar > .toolbar {
+  opacity: 1;
+  > .toolbar-item > a,
+  > .toolbar-item > button,
+  .toolbar-item > span {
+    display: inline-block;
+    padding: .25rem .75rem;
+    margin: .375rem .5rem;
+    color: var(--#{$prefix}primary);
+    background-color: rgba($primary, .12);
+    border: $border-width solid rgba(var(--#{$prefix}primary-rgb), .35);
+    border-radius: $border-radius-sm;
+    box-shadow: none;
+    transition: $btn-transition;
+    font: {
+      size: $font-size-xs;
+      weight: $font-weight-bold;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    &:hover {
+      color: $white !important; // stylelint-disable-line declaration-no-important
+      background-color: var(--#{$prefix}primary);
+    }
+  }
+}
+
+// Code highlighting colors overrides (prism.js)
+
+.token.boolean,
+.token.constant,
+.token.deleted,
+.token.number,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: var(--#{$prefix}pre-tag-color);
+}
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+  color: var(--#{$prefix}pre-comment-color);
+}
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector {
+  color: var(--#{$prefix}pre-attr-name-color);
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.string {
+  color: var(--#{$prefix}pre-attr-value-color);
+}
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url,
+.token.class-name,
+.token.function {
+  color: var(--#{$prefix}pre-class-name-color);
+  background: none;
+}
+
+
+// Keyboard
+
+kbd {
+  @include border-radius(.5rem);
+}
+/* stylelint-enable selector-no-qualifying-type */

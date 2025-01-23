@@ -1,0 +1,327 @@
+//
+// Utilities
+// Extend / update default Bootstrap's utility classes
+// ---------------------------------------------------
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+/* stylelint-disable stylistic/value-list-max-empty-lines, stylistic/function-max-empty-lines, stylistic/selector-list-comma-newline-after, declaration-no-important, property-no-vendor-prefix */
+$utilities: map-merge(
+  $utilities,
+  (
+    // Remove utilities
+    "link-offset": null,
+    "link-underline": null,
+    "link-underline-opacity": null,
+
+    // Position
+    "position": (
+      property: position,
+      responsive: true,
+      values: static relative absolute fixed sticky
+    ),
+
+    // Background colors
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            "secondary": var(--#{$prefix}gray-100),
+            "gray": var(--#{$prefix}gray-200)
+          )
+        )
+      )
+    ),
+
+    // Background size
+    "background-size": (
+      property: background-size,
+      class: bg-size,
+      values: (
+        cover: cover,
+        contain: contain
+      )
+    ),
+
+    // Background position
+    "background-position": (
+      property: background-position,
+      class: bg-position,
+      values: (
+        "center": center,
+        "center-y": left center,
+        "center-x": center top,
+        "top-end": top right,
+        "top-start": top left,
+        "top-center": top center,
+        "center-end": center right,
+        "center-start": center left,
+        "center-bottom": center bottom,
+        "bottom-end": bottom right,
+        "bottom-start": bottom left,
+        "bottom-center": bottom center
+      )
+    ),
+
+    // Background repeat
+    "background-repeat": (
+      property: background-repeat,
+      class: bg-repeat,
+      values: (
+        0: no-repeat,
+        x: repeat-x,
+        y: repeat-y
+      )
+    ),
+
+    // Background attachment
+    "background-attachment": (
+      property: background-attachment,
+      class: bg-attachment,
+      values: fixed
+    ),
+
+    // Disable background image
+    "background-image": (
+      property: background-image,
+      class: bg-image,
+      values: none
+    ),
+
+    // Border on the sides
+    "border": (
+      property: border,
+      responsive: true,
+      values: (
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+        "dashed": var(--#{$prefix}border-width) dashed darken($border-color, 4%),
+        0: 0,
+      )
+    ),
+
+    "border-top": (
+      property: border-top,
+      responsive: true,
+      values: (
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+        0: 0,
+      )
+    ),
+
+    "border-end": (
+      property: border-right,
+      responsive: true,
+      class: border-end,
+      values: (
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+        0: 0,
+      )
+    ),
+
+    "border-bottom": (
+      property: border-bottom,
+      responsive: true,
+      values: (
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+        0: 0,
+      )
+    ),
+
+    "border-start": (
+      property: border-left,
+      responsive: true,
+      class: border-start,
+      values: (
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+        0: 0,
+      )
+    ),
+
+    // Border colors
+    "border-color": map-merge(
+      map-get($utilities, "border-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "border-color"), "values"),
+          (
+            "light": $border-color-dark,
+            "input": $input-border-color
+          )
+        )
+      )
+    ),
+
+    // Width
+    "width": (
+      property: width,
+      responsive: true,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+
+    // Opacity
+    "opacity": (
+      property: opacity,
+      class: opacity,
+      values: (
+        0: 0,
+        5: .05,
+        10: .1,
+        15: .15,
+        20: .2,
+        25: .25,
+        30: .3,
+        40: .4,
+        50: .5,
+        60: .6,
+        70: .7,
+        75: .75,
+        80: .8,
+        90: .9,
+        100: 1
+      )
+    ),
+
+    // Text color
+    "color": (
+      property: color,
+      class: text,
+      local-vars: (
+        "text-opacity": 1
+      ),
+      values: map-merge(
+        $utilities-text-colors,
+        (
+          "white": $white,
+          "muted": var(--#{$prefix}secondary-color),
+          "black-50": rgba($black, .5),
+          "white-50": rgba($white, .5),
+          "body": var(--#{$prefix}body-color),
+          "body-secondary": var(--#{$prefix}secondary-color),
+          "body-tertiary": var(--#{$prefix}tertiary-color),
+          "body-emphasis": var(--#{$prefix}emphasis-color),
+          "nav": var(--#{$prefix}nav-link-color),
+          "border": var(--#{$prefix}border-color),
+          "reset": inherit
+        )
+      )
+    ),
+
+    // Font weight
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "font-weight"), "values"),
+          (
+            500: 500,
+            medium: $font-weight-medium,
+            semibold: $font-weight-semibold
+          )
+        )
+      )
+    ),
+
+    // Table layout
+    "table-layout": (
+      property: table-layout,
+      values: fixed
+    )
+  )
+);
+
+
+// Gradient text
+
+.text-gradient {
+  background: linear-gradient(90.72deg, #cbfdb1 3.49%, #acbff1 50.67%, #efa7ec 100.79%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+// Overflow hidden with rounded corners fix for Safari
+
+[class^="rounded-"].overflow-hidden,
+[class*=" rounded-"].overflow-hidden {
+  transform: translateZ(0);
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .d-dark-mode-none {
+      display: none !important;
+    }
+    .d-dark-mode-block {
+      display: block !important;
+    }
+    .d-dark-mode-inline {
+      display: inline !important;
+    }
+    .d-dark-mode-inline-block {
+      display: inline-block !important;
+    }
+    .d-dark-mode-inline-flex {
+      display: inline-flex !important;
+    }
+    .d-dark-mode-flex {
+      display: flex !important;
+    }
+    .border-dashed:not([data-bs-theme="light"]) {
+      border-color: rgba($white, .18) !important;
+    }
+    .text-dark:not(.badge):not([data-bs-theme="light"]) {
+      color: rgba(var(--#{$prefix}light-rgb), var(--#{$prefix}text-opacity)) !important;
+    }
+    .border-dark:not(.badge):not([data-bs-theme="light"]) {
+      border-color: var(--#{$prefix}gray-800) !important;
+    }
+    .bg-light:not(.badge):not([data-bs-theme="light"]) {
+      background-color: var(--#{$prefix}dark) !important;
+    }
+    .bg-white.badge:not([data-bs-theme="light"]),
+    .bg-light.badge:not([data-bs-theme="light"]) {
+      color: $gray-800;
+    }
+    .text-dark-mode-dark {
+      color: var(--#{$prefix}dark) !important;
+    }
+    .bg-secondary {
+      background-color: var(--#{$prefix}secondary-bg) !important;
+    }
+    body.bg-secondary { // stylelint-disable-line selector-no-qualifying-type
+      background-color: tint-color($body-bg-dark, 3%) !important;
+    }
+    .bg-secondary.badge:not([data-bs-theme="light"]) {
+      background-color: var(--#{$prefix}gray-200) !important;
+    }
+
+    // Shadows
+    .shadow:not([data-bs-theme="light"]) {
+      box-shadow: $box-shadow-dark !important;
+    }
+    .shadow-sm:not([data-bs-theme="light"]) {
+      box-shadow: $box-shadow-sm-dark !important;
+    }
+    .shadow-lg:not([data-bs-theme="light"]) {
+      box-shadow: $box-shadow-lg-dark !important;
+    }
+  }
+}
+/* stylelint-enable stylistic/value-list-max-empty-lines, stylistic/function-max-empty-lines, stylistic/selector-list-comma-newline-after, declaration-no-important, property-no-vendor-prefix */

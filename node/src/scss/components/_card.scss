@@ -1,0 +1,212 @@
+//
+// Card
+// --------------------------------------------------
+
+
+// Header and footer
+
+.card-header,
+.card-footer {
+  width: calc(100% - (var(--#{$prefix}card-spacer-x) * 2));
+  margin: auto;
+  padding: {
+    right: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .card-header,
+  .card-footer {
+    width: calc(100% - (var(--#{$prefix}card-spacer-x) * .75 * 2));
+  }
+  .card-body {
+    padding: calc(var(--#{$prefix}card-spacer-y) * .75) calc(var(--#{$prefix}card-spacer-x) * .75);
+  }
+}
+
+
+// Card title
+
+.card-title {
+  margin-top: -.25rem;
+}
+
+
+// Card text
+
+.card-text {
+  margin-bottom: $spacer * 1.5;
+}
+
+
+// Header navss
+
+.card-header-tabs,
+.card-header-pills {
+  margin: 0;
+  .nav-item { margin-bottom: 0; }
+}
+.card-header-tabs .nav-link.active {
+  background-color: transparent;
+  border-bottom-color: var(--#{$prefix}nav-tabs-link-active-border-color);
+}
+
+
+// List group inside card body
+
+.card-body > .list-group {
+  border: {
+    top: var(--#{$prefix}list-group-border-width) solid var(--#{$prefix}list-group-border-color);
+    bottom: var(--#{$prefix}list-group-border-width) solid var(--#{$prefix}list-group-border-color);
+  }
+}
+
+
+// Hover effect
+
+.card-hover {
+  position: relative;
+
+  .opacity-0,
+  .opacity-100 {
+    transition: opacity .3s ease-in-out;
+  }
+
+  .card-lifted,
+  &.card-lifted {
+    transition: transform .25s ease-in-out;
+  }
+
+  &:hover {
+    .opacity-0 {
+      opacity: 1 !important; // stylelint-disable-line declaration-no-important
+    }
+    .opacity-100 {
+      opacity: 0 !important; // stylelint-disable-line declaration-no-important
+    }
+
+    .card-lifted,
+    &.card-lifted {
+      transform: translateY(-.3rem);
+    }
+  }
+}
+
+.card-hover-primary {
+  transition: border-color .3s ease-in-out, background-color .3s ease-in-out;
+
+  .card-title,
+  .card-text {
+    transition: color .25s ease-in-out;
+  }
+
+  &:hover {
+    --#{$prefix}heading-color: #{$white};
+    --#{$prefix}body-color: rgba(#{to-rgb($white)}, .7);
+
+    background-color: var(--#{$prefix}primary) !important; // stylelint-disable-line declaration-no-important
+    border-color: var(--#{$prefix}primary) !important; // stylelint-disable-line declaration-no-important
+
+    .card-title {
+      color: var(--#{$prefix}heading-color);
+    }
+
+    .btn-primary {
+      @extend .btn-light;
+    }
+    .btn-outline-primary {
+      @extend .btn-outline-light;
+    }
+  }
+}
+
+
+// Flip effect
+
+.card-flip {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.card-flip-front,
+.card-flip-back {
+  height: 100%;
+  padding: $spacer * 1.5;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.card-flip-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+}
+
+.card-flip-back {
+  position: relative;
+  background-color: $card-bg;
+  transform: rotateY(180deg);
+}
+
+.card-flip:hover {
+  .card-flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+
+// Message box
+
+.message-box-start,
+.message-box-end {
+  width: 100%;
+  padding: $spacer;
+  background-color: var(--#{$prefix}gray-200);
+}
+
+.message-box-start {
+  border: {
+    top-left-radius: var(--#{$prefix}border-radius-lg);
+    top-right-radius: var(--#{$prefix}border-radius-lg);
+    bottom-right-radius: var(--#{$prefix}border-radius-lg);
+  }
+}
+
+.message-box-end {
+  border: {
+    top-left-radius: var(--#{$prefix}border-radius-lg);
+    top-right-radius: var(--#{$prefix}border-radius-lg);
+    bottom-left-radius: var(--#{$prefix}border-radius-lg);
+  }
+}
+
+
+// Dark color mode
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .card-hover-primary:hover {
+      background-color: var(--#{$prefix}primary) !important; // stylelint-disable-line declaration-no-important
+      border-color: var(--#{$prefix}primary) !important; // stylelint-disable-line declaration-no-important
+    }
+  }
+}
