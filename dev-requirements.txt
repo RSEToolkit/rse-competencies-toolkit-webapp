@@ -29,7 +29,7 @@ django-stubs-ext==5.1.2
     # via django-stubs
 filelock==3.16.1
     # via virtualenv
-identify==2.6.5
+identify==2.6.6
     # via pre-commit
 iniconfig==2.0.0
     # via pytest
