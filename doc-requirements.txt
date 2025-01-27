@@ -59,7 +59,7 @@ mkdocs==1.6.1
     #   mkdocs-section-index
     #   mkdocstrings
     #   rse_competencies_toolkit (pyproject.toml)
-mkdocs-autorefs==1.2.0
+mkdocs-autorefs==1.3.0
     # via
     #   mkdocstrings
     #   mkdocstrings-python
