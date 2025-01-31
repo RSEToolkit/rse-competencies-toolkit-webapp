@@ -7,8 +7,14 @@
 asgiref==3.8.1
     # via django
 django==5.1.5
+    # via
+    #   django-stubs-ext
+    #   rse_competencies_toolkit (pyproject.toml)
+django-stubs-ext==5.1.2
     # via rse_competencies_toolkit (pyproject.toml)
 sqlparse==0.5.3
     # via django
+typing-extensions==4.12.2
+    # via django-stubs-ext
 whitenoise==6.8.2
     # via rse_competencies_toolkit (pyproject.toml)
