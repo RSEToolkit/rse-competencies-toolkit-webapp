@@ -3,7 +3,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Category, SkillLevel, User
+from .models import Category, Skill, SkillLevel, User
 
 admin.site.register(User, UserAdmin)
 
@@ -18,9 +18,19 @@ class CategoryAdmin(admin.ModelAdmin[Category]):
     ordering = ("name",)
 
 
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin[Skill]):
+    """Admin class for the Skill model."""
+
+    list_display = ("name", "description", "category")
+    search_fields = ("name", "description")
+    list_filter = ("category",)
+    ordering = ("name",)
+
+
 @admin.register(SkillLevel)
 class SkillLevelAdmin(admin.ModelAdmin[SkillLevel]):
-    """Admin class for skill levels."""
+    """Admin class for The SkillLevel model."""
 
     list_display = ("name",)
     search_fields = ("name",)
