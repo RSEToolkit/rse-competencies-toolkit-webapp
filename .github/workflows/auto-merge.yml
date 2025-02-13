@@ -11,9 +11,9 @@ jobs:
   auto-merge:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.user.login == 'pre-commit-ci[bot]' || (github.event.pull_request.user.login == 'dependabot[bot]' && contains(github.event.pull_request.title, 'pip')) }}
+    if: ${{ github.event.pull_request.user.login == 'pre-commit-ci[bot]' || (github.event.pull_request.user.login == 'dependabot[bot]' && !contains(github.event.pull_request.title, 'action')) }}
     steps:
-      - name: Enable auto-merge for Dependabot PRs
+      - name: Enable auto-merge for Dependabot and pre-commit-ci PRs
         run: |
           gh pr review --approve "$PR_URL"
           gh pr merge --auto --merge "$PR_URL"
