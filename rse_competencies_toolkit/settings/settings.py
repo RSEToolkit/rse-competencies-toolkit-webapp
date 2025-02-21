@@ -30,6 +30,7 @@ ALLOWED_HOSTS: list[str]
 # Application definition
 
 INSTALLED_APPS = [
+    "main",  # main must go before the defaults to override the default admin views
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -121,10 +122,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# Custom settings
-INSTALLED_APPS += ["main"]
 
 
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
