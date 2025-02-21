@@ -26,7 +26,7 @@ django==5.1.5
     #   rse_competencies_toolkit (pyproject.toml)
 django-bootstrap5==24.3
     # via rse_competencies_toolkit (pyproject.toml)
-django-stubs[compatible-mypy]==5.1.2
+django-stubs[compatible-mypy]==5.1.3
     # via rse_competencies_toolkit (pyproject.toml)
 django-stubs-ext==5.1.3
     # via
@@ -70,7 +70,7 @@ pytest==8.3.4
     #   rse_competencies_toolkit (pyproject.toml)
 pytest-cov==6.0.0
     # via rse_competencies_toolkit (pyproject.toml)
-pytest-django==4.9.0
+pytest-django==4.10.0
     # via rse_competencies_toolkit (pyproject.toml)
 pytest-mock==3.14.0
     # via rse_competencies_toolkit (pyproject.toml)
