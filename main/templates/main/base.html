@@ -10,8 +10,11 @@
     </div>
     <main class="page-wrapper">
       {% include "main/snippets/navbar.html" %}
-      {% block content %}
-      {% endblock content %}
+      {# This wrapping div moves the block content out from beneath the nav bar #}
+      <div class="container position-relative z-5 pt-5 mt-4 mt-lg-5">
+        {% block content %}
+        {% endblock content %}
+      </div>
     </main>
     {% include "main/snippets/footer.html" %}
   </body>
