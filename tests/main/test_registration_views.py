@@ -30,6 +30,7 @@ class TestRegistrationViews(TestCase):
             username="testuser",
         )
 
+    # Password reset tests
     def test_password_reset(self):
         """Test the password_reset_form view."""
         with assertTemplateUsed(template_name="registration/password_reset_form.html"):
@@ -65,3 +66,12 @@ class TestRegistrationViews(TestCase):
         actual_email = mail.outbox[0]
         self.assertEqual(actual_email.subject, expected_email_subject.strip())
         self.assertRegex(actual_email.body, f"{expected_email_body.strip()}.*")
+
+    # ------------------------------------------------------------
+
+    # Password reset done tests
+    def test_password_reset_done(self):
+        """Test the privacy page view."""
+        with assertTemplateUsed(template_name="registration/password_reset_done.html"):
+            response = self.client.get("/accounts/password_reset/done/")
+        self.assertEqual(response.status_code, 200)
