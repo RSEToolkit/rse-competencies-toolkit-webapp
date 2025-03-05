@@ -124,10 +124,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Custom settings
-INSTALLED_APPS += ["main"]
+
+# List main app first so that custom templates override default admin views
+INSTALLED_APPS = ["main", *INSTALLED_APPS]
 
 
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 AUTH_USER_MODEL = "main.User"
+
+LOGIN_REDIRECT_URL = "/"
