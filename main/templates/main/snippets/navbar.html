@@ -25,11 +25,21 @@
         <i class="ai-moon fs-lg"></i>
       </label>
     </div>
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" type="submit">
+        <i class="ai-logout fs-xl me-2 ms-n1"></i>
+        Log Out
+      </button>
+    </form>
+    {% else %}
     <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
        href="{% url 'login' %}">
       <i class="ai-login fs-xl me-2 ms-n1"></i>
       Login
     </a>
+    {% endif %}
     <!-- Mobile menu toggler (Hamburger) -->
     <button class="navbar-toggler ms-sm-3"
             type="button"
