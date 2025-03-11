@@ -1,7 +1,7 @@
 const path = require('./config')
 const rollup = require('rollup')
 const nodeResolve = require('@rollup/plugin-node-resolve')
-const commonjs = require('@rollup/plugin-commonjs') // Fix CommonJS issues
+const commonjs = require('@rollup/plugin-commonjs')
 const terser = require('@rollup/plugin-terser')
 const fs = require('fs-extra')
 const packageFile = require('../../package.json')
@@ -10,7 +10,11 @@ const configureLogger = require('./logger')
 const log = configureLogger('Vendor')
 
 const excludedDependencies = ['bootstrap', 'smooth-scroll']
-const vendorFile = `${path.js}/vendor.bundle.js`
+const vendorJsFile = `${path.js}/vendor.bundle.js`
+const vendorCssFile = `${path.css}/vendor.bundle.css`
+const vendorEntry = `${path.src_js}/vendor.js`
+
+const externalVendorStyles = ['aos/dist/aos.css']
 
 const getVendorEntries = () => {
   const dependencies = Object.keys(packageFile.dependencies).filter(
@@ -23,35 +27,22 @@ const getVendorEntries = () => {
   )
 }
 
-const cleanVendorDirectory = async () => {
-  log.info('Cleaning vendor directory...')
-  try {
-    await fs.emptyDir(path.vendor)
-    log.success('Cleaned vendor directory')
-  } catch (error) {
-    log.error('', `Failed to clean vendor directory: ${error.message}`)
-  }
-}
-
 const bundleVendorScripts = async () => {
   log.info('Bundling vendor scripts...')
   try {
-    const vendorEntry = `${path.src_js}/vendor.js`
-
-    // Generate a temporary entry file
     await fs.writeFile(vendorEntry, getVendorEntries())
 
     const bundle = await rollup.rollup({
       input: vendorEntry,
       plugins: [
-        nodeResolve({ browser: true, preferBuiltins: false }), // Fix module resolution
-        commonjs({ include: /node_modules/ }), // Handle CommonJS modules properly
-        terser(), // Minify output
+        nodeResolve({ browser: true, preferBuiltins: false }),
+        commonjs({ include: /node_modules/ }),
+        terser(),
       ],
     })
 
     await bundle.write({
-      file: vendorFile,
+      file: vendorJsFile,
       format: 'iife',
       sourcemap: true,
     })
@@ -62,7 +53,36 @@ const bundleVendorScripts = async () => {
   }
 }
 
+const bundleVendorStyles = async () => {
+  log.info('Bundling vendor styles...')
+  try {
+    let combinedStyles = ''
+
+    for (const stylePath of externalVendorStyles) {
+      const fullPath = require.resolve(stylePath)
+      const cssContent = await fs.readFile(fullPath, 'utf8')
+      combinedStyles += `/* ${stylePath} */\n${cssContent}\n`
+    }
+
+    await fs.writeFile(vendorCssFile, combinedStyles)
+    log.success('Bundled vendor styles successfully')
+  } catch (error) {
+    log.error('', `Failed to bundle vendor styles: ${error.message}`)
+  }
+}
+
+const cleanTemporaryFiles = async () => {
+  log.info('Cleaning up temporary vendor files...')
+  try {
+    await fs.remove(vendorEntry)
+    log.success('Temporary vendor files removed successfully')
+  } catch (error) {
+    log.error('', `Failed to remove temporary vendor files: ${error.message}`)
+  }
+}
+
 ;(async () => {
-  await cleanVendorDirectory()
   await bundleVendorScripts()
+  await bundleVendorStyles()
+  await cleanTemporaryFiles()
 })()
