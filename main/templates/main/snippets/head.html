@@ -1,56 +1,43 @@
 {% load static %}
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-  <title>
-    {% block title %}
-    {% endblock title %}
-  </title>
-  <meta name="description"
-        content="Around - Multipurpose Bootstrap HTML Template">
-  <meta name="keywords"
-        content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, light and dark mode, html5, css3, javascript, gallery, slider, touch, creative">
-  <meta name="author" content="Createx Studio">
-  <!-- Webmanifest + Favicon / App icons -->
-  <link rel="manifest" href="{% static 'manifest.json' %}">
-  <link rel="icon"
-        type="image/png"
-        href="{% static 'assets/app-icons/icon-32x32.png' %}"
-        sizes="32x32">
-  <link rel="apple-touch-icon"
-        href="{% static 'assets/app-icons/icon-180x180.png' %}">
-  <!-- Theme switcher (color modes) -->
-  <script src="{% static 'assets/js/theme-switcher.js' %}"></script>
-  <script src="{% static 'assets/js/theme.js' %}"></script>
-  <!-- Import Google font (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
-        rel="stylesheet"
-        id="google-font">
-  <!-- Vendor styles -->
-  <!-- <link rel="stylesheet"
-        media="screen"
-        href="{% static 'assets/vendor/img-comparison-slider/dist/styles.css' %}"> -->
-  <!-- <link rel="stylesheet"
-        media="screen"
-        href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"> -->
-  <link rel="stylesheet"
-        media="screen"
-        href="{% static 'assets/vendor/aos/dist/aos.css' %}">
-  <!-- <link rel="stylesheet"
-        media="screen"
-        href="{% static 'assets/vendor/lightgallery/css/lightgallery-bundle.min.css' %}"> -->
-  <!-- Font icons -->
-  <link rel="stylesheet"
-        href="{% static 'assets/icons/around-icons.min.css' %}">
-  <!-- Theme styles + Bootstrap -->
-  <link rel="stylesheet"
-        media="screen"
-        href="{% static 'assets/css/theme.min.css' %}">
-  <!-- Page loading styles -->
-  <style>
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>
+  {% block title %}
+  {% endblock title %}
+</title>
+<meta name="description"
+      content="Around - Multipurpose Bootstrap HTML Template">
+<meta name="keywords"
+      content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, light and dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+<meta name="author" content="Createx Studio">
+<!-- Webmanifest + Favicon / App icons -->
+<link rel="manifest" href="{% static 'manifest.json' %}">
+<link rel="icon"
+      type="image/png"
+      href="{% static 'assets/app-icons/icon-32x32.png' %}"
+      sizes="32x32">
+<link rel="apple-touch-icon"
+      href="{% static 'assets/app-icons/icon-180x180.png' %}">
+<!-- Import Google font (Inter) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+      id="google-font">
+<!-- Import FontAwesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Vendor styles -->
+<link rel="stylesheet"
+      media="screen"
+      href="{% static 'assets/css/vendor.bundle.css' %}">
+<!-- Theme styles + Bootstrap -->
+<link rel="stylesheet"
+      media="screen"
+      href="{% static 'assets/css/theme.min.css' %}">
+<!-- Page loading styles -->
+<style>
       .page-loading {
         position: fixed;
         top: 0;
@@ -136,9 +123,9 @@
           transform: none;
         }
       }
-  </style>
-  <!-- Page loading scripts -->
-  <script>
+</style>
+<!-- Page loading scripts -->
+<script>
       (function () {
         window.onload = function () {
           const preloader = document.querySelector('.page-loading')
@@ -148,4 +135,4 @@
           }, 1500)
         }
       })()
-  </script>
+</script>

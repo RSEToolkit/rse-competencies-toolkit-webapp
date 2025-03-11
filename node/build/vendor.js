@@ -3,6 +3,7 @@ const rollup = require('rollup')
 const nodeResolve = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
 const terser = require('@rollup/plugin-terser')
+const virtual = require('@rollup/plugin-virtual')
 const fs = require('fs-extra')
 const packageFile = require('../../package.json')
 const configureLogger = require('./logger')
@@ -12,7 +13,6 @@ const log = configureLogger('Vendor')
 const excludedDependencies = ['bootstrap', 'smooth-scroll']
 const vendorJsFile = `${path.js}/vendor.bundle.js`
 const vendorCssFile = `${path.css}/vendor.bundle.css`
-const vendorEntry = `${path.src_js}/vendor.js`
 
 const externalVendorStyles = ['aos/dist/aos.css']
 
@@ -23,18 +23,17 @@ const getVendorEntries = () => {
 
   return (
     dependencies.map((dep) => `import '${dep}'`).join('\n') +
-    "\nimport AOS from 'aos'\nwindow.AOS = AOS" // Expose AOS globally
+    "\nimport AOS from 'aos'\nwindow.AOS = AOS"
   )
 }
 
 const bundleVendorScripts = async () => {
   log.info('Bundling vendor scripts...')
   try {
-    await fs.writeFile(vendorEntry, getVendorEntries())
-
     const bundle = await rollup.rollup({
-      input: vendorEntry,
+      input: 'virtual-vendor',
       plugins: [
+        virtual({ 'virtual-vendor': getVendorEntries() }),
         nodeResolve({ browser: true, preferBuiltins: false }),
         commonjs({ include: /node_modules/ }),
         terser(),
@@ -71,18 +70,7 @@ const bundleVendorStyles = async () => {
   }
 }
 
-const cleanTemporaryFiles = async () => {
-  log.info('Cleaning up temporary vendor files...')
-  try {
-    await fs.remove(vendorEntry)
-    log.success('Temporary vendor files removed successfully')
-  } catch (error) {
-    log.error('', `Failed to remove temporary vendor files: ${error.message}`)
-  }
-}
-
 ;(async () => {
   await bundleVendorScripts()
   await bundleVendorStyles()
-  await cleanTemporaryFiles()
 })()
