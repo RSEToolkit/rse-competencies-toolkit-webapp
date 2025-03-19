@@ -14,7 +14,7 @@ cfgv==3.4.0
     # via pre-commit
 click==8.1.8
     # via pip-tools
-coverage[toml]==7.6.10
+coverage[toml]==7.7.0
     # via pytest-cov
 distlib==0.3.9
     # via virtualenv
@@ -32,7 +32,7 @@ django-stubs-ext==5.1.3
     # via
     #   django-stubs
     #   rse_competencies_toolkit (pyproject.toml)
-filelock==3.17.0
+filelock==3.18.0
     # via virtualenv
 identify==2.6.8
     # via pre-commit
@@ -76,7 +76,7 @@ pytest-mock==3.14.0
     # via rse_competencies_toolkit (pyproject.toml)
 pyyaml==6.0.2
     # via pre-commit
-ruff==0.9.6
+ruff==0.11.0
     # via rse_competencies_toolkit (pyproject.toml)
 sqlparse==0.5.3
     # via django
@@ -87,11 +87,11 @@ typing-extensions==4.12.2
     #   django-stubs
     #   django-stubs-ext
     #   mypy
-virtualenv==20.29.2
+virtualenv==20.29.3
     # via pre-commit
 wheel==0.45.1
     # via pip-tools
-whitenoise==6.8.2
+whitenoise==6.9.0
     # via rse_competencies_toolkit (pyproject.toml)
 
 # The following packages are considered to be unsafe in a requirements file:
