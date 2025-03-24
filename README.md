@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD041 -->
+
 [![GitHub](https://img.shields.io/github/license/AdrianDAlessandro/rse-competencies-toolkit-webapp)](https://raw.githubusercontent.com/AdrianDAlessandro/rse-competencies-toolkit-webapp/main/LICENSE)
 [![Test and build](https://github.com/AdrianDAlessandro/rse-competencies-toolkit-webapp/actions/workflows/ci.yml/badge.svg)](https://github.com/AdrianDAlessandro/rse-competencies-toolkit-webapp/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/AdrianDAlessandro/rse-competencies-toolkit-webapp/graph/badge.svg?token=56K64XN243)](https://codecov.io/gh/AdrianDAlessandro/rse-competencies-toolkit-webapp)
@@ -128,43 +129,37 @@ npm install
 
 Key commands available in the `package.json`:
 
-***Build All Assets:*** To build all styles, scripts, icon fonts, and vendor files, run:
+**_Build All Assets:_** To build all styles, scripts, icon fonts, and vendor files, run:
 
 ```bash
 npm run build
 ```
 
-***Build Expanded Styles:*** To build expanded (human-readable) css files:
+**_Build Expanded Styles:_** To build expanded (human-readable) css files:
 
 ```bash
 npm run styles:expanded
 ```
 
-***Build Minified Styles:*** To build minified (optimised for production) css files:
+**_Build Minified Styles:_** To build minified (optimised for production) css files:
 
 ```bash
 npm run styles:minified
 ```
 
-***Build Expanded Scripts:*** To build expanded (human-readable) javascript file:
+**_Build Expanded Scripts:_** To build expanded (human-readable) javascript file:
 
 ```bash
 npm run scripts:expanded
 ```
 
-***Build Minified Styles:*** To build minified (optimised for production) javascript file:
+**_Build Minified Styles:_** To build minified (optimised for production) javascript file:
 
 ```bash
 npm run scripts:minified
 ```
 
-***Build Icon Fonts:*** Generate custom icon fonts from SVG files:
-
-```bash
-npm run icon-font
-```
-
-***Build Vendor Files:*** Bundle and optimise third-party libraries:
+**_Build Vendor Files:_** Bundle and optimise third-party libraries:
 
 ```bash
 npm run vendor
