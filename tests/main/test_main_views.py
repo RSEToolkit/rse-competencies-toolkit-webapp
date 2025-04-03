@@ -1,24 +1,39 @@
-# from django.core import mail
+"""Test suite for the main views.
 
-from django.test import TestCase
-from pytest_django.asserts import assertTemplateUsed
+This test module includes tests for main views of the app ensuring that:
+  - The correct templates are used.
+  - The correct status codes are returned.
+"""
+
+import pytest
+from django.urls import reverse
+
+from .view_utils import LoginRequiredMixin, TemplateOkMixin
 
 
-class TestMainViews(TestCase):
-    """Test suite for the main views of the RSE Competencies Toolkit web application.
+class TestIndex(TemplateOkMixin):
+    """Test suite for the index view."""
 
-    This test case includes tests for main views of the app ensurign that the correct
-    templates are used
-    """
+    _template_name = "main/index.html"
 
-    def test_index(self):
-        """Test the index view."""
-        with assertTemplateUsed(template_name="main/index.html"):
-            response = self.client.get("/")
-        assert response.status_code == 200
+    def _get_url(self):
+        return reverse("index")
 
-    def test_privacy(self):
-        """Test the privacy page view."""
-        with assertTemplateUsed(template_name="main/privacy.html"):
-            response = self.client.get("/privacy/")
-        self.assertEqual(response.status_code, 200)
+
+class TestPrivacy(TemplateOkMixin):
+    """Test suite for the privacy view."""
+
+    _template_name = "main/privacy.html"
+
+    def _get_url(self):
+        return reverse("privacy")
+
+
+@pytest.mark.xfail
+class TestCreateUserView(LoginRequiredMixin, TemplateOkMixin):
+    """Test suite for the CreateUserView."""
+
+    _template_name = "main/create_user.html"
+
+    def _get_url(self):
+        return reverse("create_user")

@@ -6,12 +6,7 @@ authors = [
     { name = "Adrian D'Alessandro", email = "a.dalessandro@imperial.ac.uk" },
 ]
 requires-python = ">=3.12"
-dependencies = [
-    "django",
-    "django-bootstrap5",
-    "django-stubs-ext",
-    "whitenoise",
-]
+dependencies = ["django", "django-bootstrap5", "django-stubs-ext", "whitenoise"]
 
 [project.optional-dependencies]
 dev = [
@@ -78,10 +73,7 @@ select = [
 pydocstyle.convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = [
-    "D100",
-    "D104",
-] # Missing docstring in public module, Missing docstring in public package
+"tests/*" = ["D104"] # Missing docstring in public package
 
 [tool.django-stubs]
 django_settings_module = "rse_competencies_toolkit.settings"
