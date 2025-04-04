@@ -49,7 +49,6 @@ const minifyCss = async () => {
   const result = await postcss([cssnano]).process(css, { from: undefined })
   fs.writeFileSync(`${path.icons.output}/${minifiedCssFileName}`, result.css)
 
-  // delete the original .css file
   try {
     fs.unlinkSync(`${path.icons.output}/${cssFileName}`)
   } catch (err) {

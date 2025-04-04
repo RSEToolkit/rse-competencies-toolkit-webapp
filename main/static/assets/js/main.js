@@ -1,13 +1,3 @@
-
-/**
- * Around | Multipurpose Bootstrap HTML Template
- * Copyright 2023 Createx Studio
- * Theme scripts
- *
- * @author Createx Studio
- * @version 3.2.0
- */
-      
 (function () {
   'use strict';
 
@@ -7914,4 +7904,4 @@
   })();
 
 })();
-//# sourceMappingURL=theme.js.map
+//# sourceMappingURL=main.js.map

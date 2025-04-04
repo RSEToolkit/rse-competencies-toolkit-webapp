@@ -8,7 +8,7 @@ const configureLogger = require('./logger')
 
 const log = configureLogger('Styles')
 
-const output = process.argv[2] || 'expanded' // Default to expanded if not provided
+const output = process.argv[2] || 'expanded'
 
 function runScript(alias, script) {
   try {
