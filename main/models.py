@@ -48,10 +48,7 @@ class Skill(models.Model):
 
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
-    category = models.ForeignKey(
-        Category,
-        on_delete=models.CASCADE,
-    )
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         """Return the name of the skill."""
@@ -69,3 +66,15 @@ class SkillLevel(models.Model):
     """Model for skill levels."""
 
     name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        """Return the name of the skill level."""
+        return self.name
+
+
+class UserSkill(models.Model):
+    """Model for mapping users to skills and skill levels."""
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    skill_level = models.ForeignKey(SkillLevel, on_delete=models.CASCADE)
