@@ -1,4 +1,4 @@
-site_name: RSE Competencies Toolkit
+site_name: DIRECT WebApp
 watch: [main]
 
 theme:
@@ -33,6 +33,6 @@ plugins:
             merge_init_into_class: true
 
 nav:
-  - RSE Competencies Toolkit documentation: index.md
+  - DIRECT WebApp documentation: index.md
   # defer to gen-files + literate-nav
   - Code Reference: reference/

@@ -1,1 +1,1 @@
-"""The main module for RSE Competencies Toolkit."""
+"""The main module for Digital Research Competencies Framework."""

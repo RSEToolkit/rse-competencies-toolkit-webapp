@@ -1,11 +1,12 @@
 <!-- markdownlint-disable MD033 -->
-# Contributing to RSE Competencies Toolkit WebApp
 
-Thanks for taking the time to contribute to RSE Competencies Toolkit WebApp!
+# Contributing to the DIRECT WebApp
+
+Thanks for taking the time to contribute to the DIRECT WebApp!
 
 These contributing guidelines are inspired from [Atom's contributing guidelines](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
 
-The following is a set of guidelines for contributing to this WebApp, a Django webapp for hosting the RSE Competencies Toolkit. The goal of these guidelines is to make the development of the project efficient and sustainable and to ensure that every commit makes it better, more readable, more robust and better documented. Please, feel free suggest changes and improvements.
+The following is a set of guidelines for contributing to this WebApp, a Django webapp for hosting the Digital Research Competencies Framework. The goal of these guidelines is to make the development of the project efficient and sustainable and to ensure that every commit makes it better, more readable, more robust and better documented. Please, feel free suggest changes and improvements.
 
 ## Table Of Contents
 
@@ -24,7 +25,9 @@ The following is a set of guidelines for contributing to this WebApp, a Django w
 - [Documentation Styleguide](#documentation-styleguide)
 
 ## Code of Conduct
+
 <!-- markdownlint-disable MD042 -->
+
 This project and everyone participating in it is governed by the [Code of Conduct](). By participating, you are expected to uphold this code. Please report unacceptable behavior to [the repository Administrator]().
 
 ## How Can I Contribute?
@@ -46,7 +49,7 @@ Before creating bug reports, please check [this list](https://github.com/AdrianD
 Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Explain the problem and include additional details to help maintainers reproduce the problem:
 
 - **Use a clear and descriptive title** for the issue to identify the problem.
-- **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by explaining how you installed the RSE Competencies Toolkit WebApp and what you were trying to do.
+- **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by explaining how you installed the DIRECT WebApp and what you were trying to do.
 - **Provide specific examples to demonstrate the steps**. Include links to files or GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 - **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 - **Explain which behavior you expected to see instead and why.**
@@ -83,7 +86,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 
 ### Your First Code Contribution
 
-Unsure where to begin contributing to the RSE Competencies Toolkit WebApp? You can start by looking through these `beginner` and `help-wanted` issues:
+Unsure where to begin contributing to the DIRECT WebApp? You can start by looking through these `beginner` and `help-wanted` issues:
 
 - [Beginner issues](https://github.com/AdrianDAlessandro/rse-competencies-toolkit-webapp/labels/good%20first%20issue) - issues which should only require a few lines of code, and a test or two.
 - [Help wanted issues](https://github.com/AdrianDAlessandro/rse-competencies-toolkit-webapp/labels/help%20wanted) - issues which should be a bit more involved than `beginner` issues.
@@ -99,7 +102,7 @@ The process described here has several goals:
 
 Please follow these steps to have your contribution considered by the maintainers:
 
-1. **Describe clearly what is the purpose of the pull request**. Refer to the relevant issues on [Bugs](#reporting-bugs) or [Enhancements](#suggesting-enhancements). In general, an issue should always be open *prior* to a pull request, to discuss its contents with a maintainer and make sure it makes sense for the App. If the pull request is a work in progress that will take some time to be ready but still you want to discuss it with the community, open a [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
+1. **Describe clearly what is the purpose of the pull request**. Refer to the relevant issues on [Bugs](#reporting-bugs) or [Enhancements](#suggesting-enhancements). In general, an issue should always be open _prior_ to a pull request, to discuss its contents with a maintainer and make sure it makes sense for the App. If the pull request is a work in progress that will take some time to be ready but still you want to discuss it with the community, open a [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
 2. **Include relevant unit tests and integration tests, where needed**. The App's test suite is quite limited at the moment. We are working to improve this and tests as many features as possible, so any new addition to the code must come with its own set of tests to avoid going backwards in this matter.
 3. **For new features and enhancements, include documentation and examples**. Both in the code, as docstrings in classes, functions and modules, and as proper documentation describing how to use the new feature.
 4. Follow the [styleguides](#styleguides)
