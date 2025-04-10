@@ -8,7 +8,7 @@ const configureLogger = require('./logger')
 
 const log = configureLogger('Scripts')
 
-const output = process.argv[2] || 'expanded' // Default to expanded if not provided
+const output = process.argv[2] || 'expanded'
 
 const lintJS = async () => {
   log.info('Linting JavaScript...')
@@ -30,7 +30,7 @@ const bundleJS = async (output) => {
   log.info('Bundling JavaScript...')
   try {
     const isMinified = output === 'minified'
-    const outputFilename = isMinified ? 'theme.min.js' : 'theme.js'
+    const outputFilename = isMinified ? 'main.min.js' : 'main.js'
 
     const inputOptions = {
       input: `./${path.src_js}/theme.js`,
@@ -56,16 +56,6 @@ const bundleJS = async (output) => {
       file: `${path.js}/${outputFilename}`,
       format: 'iife',
       sourcemap: true,
-      banner: `
-/**
- * Around | Multipurpose Bootstrap HTML Template
- * Copyright 2023 Createx Studio
- * Theme scripts
- *
- * @author Createx Studio
- * @version 3.2.0
- */
-      `,
     }
 
     const bundle = await rollup.rollup(inputOptions)
