@@ -82,7 +82,7 @@ sqlparse==0.5.3
     # via django
 types-pyyaml==6.0.12.20241230
     # via django-stubs
-typing-extensions==4.12.2
+typing-extensions==4.13.2
     # via
     #   django-stubs
     #   django-stubs-ext

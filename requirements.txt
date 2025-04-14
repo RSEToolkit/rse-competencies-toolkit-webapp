@@ -23,7 +23,7 @@ sqlparse==0.5.3
     # via django
 starkbank-ecdsa==2.2.0
     # via sendgrid
-typing-extensions==4.12.2
+typing-extensions==4.13.2
     # via django-stubs-ext
 whitenoise==6.9.0
     # via rse_competencies_toolkit (pyproject.toml)
